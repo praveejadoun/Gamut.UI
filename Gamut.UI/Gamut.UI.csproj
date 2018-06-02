@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.2.6.1\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.2.6.1\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{79B11BA6-110B-4978-8B3A-25B30D977B7A}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>temp</RootNamespace>
+    <AssemblyName>temp</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="Gamut.UI\App.js" />
+    <Content Include="Gamut.UI\Controllers\AuthController.js" />
+    <Content Include="Gamut.UI\Controllers\GeneralController.js" />
+    <Content Include="Gamut.UI\css\bootstrap.css" />
+    <Content Include="Gamut.UI\css\bootstrap.min.css" />
+    <Content Include="Gamut.UI\css\Login.css" />
+    <Content Include="Gamut.UI\css\Main.css" />
+    <Content Include="Gamut.UI\css\Site.css" />
+    <Content Include="Gamut.UI\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Gamut.UI\Scripts\angular-route.js" />
+    <Content Include="Gamut.UI\Scripts\angular-route.min.js" />
+    <Content Include="Gamut.UI\Scripts\angular.js" />
+    <Content Include="Gamut.UI\Scripts\angular.min.js" />
+    <Content Include="Gamut.UI\Scripts\bootstrap.js" />
+    <Content Include="Gamut.UI\Scripts\bootstrap.min.js" />
+    <None Include="Gamut.UI\Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Gamut.UI\Scripts\jquery-1.10.2.js" />
+    <Content Include="Gamut.UI\Scripts\jquery-1.10.2.min.js" />
+    <None Include="Gamut.UI\Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Gamut.UI\Scripts\jquery.validate.js" />
+    <Content Include="Gamut.UI\Scripts\jquery.validate.min.js" />
+    <Content Include="Gamut.UI\Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Gamut.UI\Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Gamut.UI\Scripts\modernizr-2.6.2.js" />
+    <Content Include="Gamut.UI\Scripts\respond.js" />
+    <Content Include="Gamut.UI\Scripts\respond.min.js" />
+    <Content Include="Gamut.UI\Scripts\sammy-0.7.4.js" />
+    <Content Include="Gamut.UI\Scripts\sammy-0.7.4.min.js" />
+    <Content Include="Gamut.UI\Services.js" />
+    <Content Include="Gamut.UI\Views\Home\Index.html" />
+    <Content Include="Gamut.UI\Views\Home\login.html" />
+    <Content Include="Gamut.UI\Views\ManageData\AddNew.html" />
+    <Content Include="Gamut.UI\Views\ManageData\Delete.html" />
+    <Content Include="Gamut.UI\Views\ManageData\Documents.html" />
+    <Content Include="Gamut.UI\Views\ManageData\Edit.html" />
+    <Content Include="Gamut.UI\Views\ManageData\General.html" />
+    <Content Include="Gamut.UI\Views\ManageData\ShowAll.html" />
+    <Content Include="Index.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Gamut.UI\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Gamut.UI\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Gamut.UI\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Gamut.UI\Scripts\angular.min.js.map" />
+    <Content Include="Gamut.UI\Scripts\errors.json" />
+    <Content Include="Gamut.UI\Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Gamut.UI\Views\Shared\Error.cshtml" />
+    <Content Include="Gamut.UI\Views\Shared\Lockout.cshtml" />
+    <Content Include="Gamut.UI\Views\Shared\_Layout.cshtml" />
+    <Content Include="Gamut.UI\Views\Shared\_LoginPartial.cshtml" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>50994</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:50994/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+ 
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
