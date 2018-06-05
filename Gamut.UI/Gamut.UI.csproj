@@ -94,10 +94,6 @@
     <Content Include="Gamut.UI\Scripts\angular.min.js.map" />
     <Content Include="Gamut.UI\Scripts\errors.json" />
     <Content Include="Gamut.UI\Scripts\jquery-1.10.2.min.map" />
-    <Content Include="Gamut.UI\Views\Shared\Error.cshtml" />
-    <Content Include="Gamut.UI\Views\Shared\Lockout.cshtml" />
-    <Content Include="Gamut.UI\Views\Shared\_Layout.cshtml" />
-    <Content Include="Gamut.UI\Views\Shared\_LoginPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
