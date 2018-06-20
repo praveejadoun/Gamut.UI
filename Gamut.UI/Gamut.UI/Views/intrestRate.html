@@ -1,0 +1,44 @@
+<style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+        
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+        
+       
+        </style>
+
+<table ng-repeat= "(key, value) in group | groupBy: 'accountType'">
+    <tr>
+        <th>Type: {{item.type}}{{key}}</th>
+    </tr>
+        <tr>
+          <th>Account No.</th>
+          <th>ROI Charged</th>
+          <th>As per ID no.</th>
+          <th>Dated</th>
+          <th>Scheme Type</th>
+          <th>If 'Not Complied' Followup Date</th>
+          <th>Complied Date</th>
+        </tr>
+        <tr ng-repeat= "List in value">
+          <td>{{List.accountNo}}</td>
+          <td>{{List.roi}}</td>
+          <td>{{List.asperID}}</td>
+          <td>{{List.dated | date:'yyyy-MM-dd'}}</td>
+          <td>{{List.schemeType == 'NULL' ?'schemeType' : "NULL"}}</td>
+          <td>{{List.followUpDate | date:'yyyy-MM-dd'}}</td>
+          <td>{{List.compiledDate | date:'yyyy-MM-dd'}}</td>
+        </tr>
+        <tr>
+            <th style="border: #ffffff !important">
+                <br/>
+            </th>
+        </tr>
+</table>

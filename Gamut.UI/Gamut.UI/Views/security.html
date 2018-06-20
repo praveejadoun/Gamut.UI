@@ -1,0 +1,46 @@
+<style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+        
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+        
+       
+        </style>
+
+<table ng-repeat= "(key, value) in group | groupBy: 'securityType'" ng-if="group.length  >0">
+    <tr>
+        <th>Type: {{key}}</th>
+    </tr>
+        <tr>
+          <th>Facility + A/c No</th>
+          <th>Balance as on</th>
+          <th>Security Details</th>
+          <th>Value / Apportion Value</th>
+          <th>Date</th>
+          <th>Insurance Value(Expiry Date)</th>
+          <th>Correct Y/N</th>
+          <th>If 'No' Followup date</th>
+        </tr>
+        <tr ng-repeat= "List in value">
+          <td>{{List.accountNo}}</td>
+          <td>{{List.balanceAsOn}}</td>
+          <td>{{List.securityDetails}}</td>
+          <td>{{List.apportionValue}}</td>
+          <td>No Value</td>
+          <td>No Value</td>
+          <td>{{List.correctFlag}}</td>
+          <td>{{List.followUpDate | date:'yyyy-MM-dd'}}</td>
+        </tr>
+        <tr>
+            <th style="border: #ffffff !important">
+                <br/>
+            </th>
+        </tr>
+</table>

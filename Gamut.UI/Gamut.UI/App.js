@@ -1,69 +1,92 @@
-﻿var app = angular.module("ApplicationModule", ["ngRoute"]);
+﻿/// <reference path="Views/intrestRate.html" />
+var app = angular.module("ApplicationModule", ["ngRoute", "ui.bootstrap",'angular.filter','toaster','blockUI']);
 
 app.factory("ShareData", function () {
     return { value: 0 }
 });
-//app.service('Api', ['$http', SPACRUDService]);
-//app.controller("AddController", AddController);
-//app.controller("ShowController", ShowController);
-//app.controller("EditController", EditController);
-//app.controller("DeleteController", DeleteController);
 
-//app.run(['$rootScope', function ($rootScope) {
-//    alert('app run');
-//    $rootScope.auth = 0;
-//}]);
-
-
-
-app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
+app.config(['$routeProvider', '$locationProvider','$httpProvider', function ($routeProvider, $locationProvider,$httpProvider) {
     //debugger;
-    $routeProvider.when('/show',
-                        {
-                            templateUrl: 'ManageData/ShowAll',
-                            controller: 'ShowController'
-                        });
-    $routeProvider.when('/add',
-                        {
-                            templateUrl: 'ManageData/AddNew',
-                            controller: 'AddController'
-                        });
-    $routeProvider.when("/edit",
-                        {
-                            templateUrl: 'ManageData/Edit',
-                            controller: 'EditController'
-                        });
-    $routeProvider.when('/delete',
-                        {
-                            templateUrl: 'ManageData/Delete',
-                            controller: 'DeleteController'
-                        });
-    $routeProvider.when('/home',
-        {
-            templateUrl: 'Home/Index',
-            controller: 'AddController'
-        });
-    $routeProvider.when('/general',
-        {
-            templateUrl: 'Gamut.UI/Views/ManageData/General.html',
-            controller: 'GeneralController'
-        });
-    $routeProvider.when('/documents',
-        {
-            templateUrl: 'ManageData/Documents',
-            controller: 'DocumentsController'
-        });
-    $routeProvider.when('/logout',
-        {
-            templateUrl: '/Home/Login',
-            //controller: 'GeneralController'
-            //$location.path("Home/login")
-            //redirectTo: 'Home/Login'
-        });
-    $routeProvider.otherwise(
-                        {
-            redirectTo: '/'
-                        });
+    $routeProvider.when('/test',{
+        templateUrl: 'ManageData/Soc124',
+        controller: 'test'
+    }).when('/add',{
+        templateUrl: 'ManageData/AddNew',
+        controller: 'AddController'
+    }).when("/edit",{
+        templateUrl: 'ManageData/Edit',
+        controller: 'EditController'
+    }).when('/delete',{
+        templateUrl: 'ManageData/Delete',
+        controller: 'DeleteController'
+    }).when('/home',{
+        templateUrl: 'Home/Index',
+        controller: 'AddController'
+    }).when('/general',{
+        templateUrl: 'Gamut.UI/Views/ManageData/General.html',
+        controller: 'GeneralController'
+    }).when('/documents',{
+        templateUrl: 'ManageData/Documents',
+        controller: 'DocumentsController'
+    }).when('/logout',{
+        templateUrl: '/Home/Login',
+        //controller: 'GeneralController'
+        //$location.path("Home/login")
+        //redirectTo: 'Home/Login'
+    }).when('/intrestRate',{
+        templateUrl: 'Gamut.UI/Views/intrestRate.html',
+        controller: 'IntrestRateController'
+    }).when('/rating',{
+        templateUrl: 'Gamut.UI/Views/rating.html',
+        controller: 'RatingController'
+    }).when('/security',{
+        templateUrl: 'Gamut.UI/Views/security.html',
+        controller: 'SecurityController'
+    }).when('/soc124',{
+        templateUrl: 'Gamut.UI/Views/ManageData/Soc124.html',
+        controller: 'Soc124Controller'
+    }).otherwise({
+        redirectTo: '/'
+    });
     
-    $locationProvider.html5Mode(true).hashPrefix('!')
-}]);
+    // $locationProvider.html5Mode(true).hashPrefix('!')
+    
+}]).run(function($rootScope,customerService,blockUI,toaster){
+    getcustomer('Maruti');
+    function getcustomers() {
+            blockUI.start('Please wait...');
+            var customerList = customerService.getCustomerList();
+            customerList.then(function (response) {
+                $rootScope.customers = response.data;
+                blockUI.stop();
+            },function (errorresponse) {
+                blockUI.stop();
+                $rootScope.error = 'failure loading Customer Data', errorresponse;
+            });
+        }
+        getcustomers();
+
+        $rootScope.onSelect = function ($item, $model, $label) {
+            $rootScope.$item = $item;
+            $rootScope.custId = $rootScope.$item.cust_id;
+            if($rootScope.custId != null){
+                localStorage.setItem("custId",$rootScope.custId);
+            }else{
+                localStorage.setItem("custId","Maruti");
+            }
+            
+            getcustomer($rootScope.$item.cust_id);
+        };
+
+        function getcustomer(Id){
+            blockUI.start('Please wait...');
+            var customerById = customerService.getCustomerById(Id);
+            customerById.then(function (response) {
+                $rootScope.customer = response.data;
+                blockUI.stop();
+            },function (errorresponse) {
+                $rootScope.error = 'failure loading Customer By Id Data', errorresponse;
+                blockUI.stop();
+            });
+        }
+});

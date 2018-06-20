@@ -1,4 +1,4 @@
-﻿app.controller('AuthController', function ($scope, $window, $rootScope, userService) {
+﻿app.controller('AuthController', function ($scope, $window, $rootScope, userService,blockUI) {
     //AddController = function ($scope, SPACRUDService) {
     $scope.StudentID = 0;
     $scope.test = "General Controller";

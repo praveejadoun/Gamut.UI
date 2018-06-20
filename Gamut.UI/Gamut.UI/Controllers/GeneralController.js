@@ -1,4 +1,4 @@
-﻿app.controller('GeneralController', function ($scope, $location, $window, $rootScope, userService,GeneralService,ShareData) {
+﻿app.controller('GeneralController', function ($scope, $location, $window, $rootScope,toaster, userService,GeneralService,ShareData,blockUI) {
     $scope.StudentID = 0;
     $scope.test = "General Controller";
     $scope.loginId = "admin";
@@ -7,41 +7,47 @@
     getGeneral();
 
     function getGeneral() {
-        ShareData.value = 'jpmc';
-        var promiseGetGeneral = GeneralService.getGeneral(ShareData.value);
+        blockUI.start('Please wait...');
+        $scope.customerId = localStorage.getItem("custId");
+        var promiseGetGeneral = GeneralService.getGeneral($scope.customerId);
         //debugger;
         promiseGetGeneral.then(function (pl) {
-            //alert(pl.data);
-            //debugger;
-            $scope.General = pl.data;
+            $scope.exLimitTotal = 0;
+            $scope.exBalanceTotal = 0;
+            $scope.exPosuresTotal = 0;
+           var exposuresList = pl.data.exposures;
+           for (var prop in exposuresList) {
+            if (exposuresList.hasOwnProperty(prop)) { 
+               
+                var row = JSON.parse(JSON.stringify(exposuresList[prop]));
+              
+              $scope.exLimitTotal = parseInt($scope.exLimitTotal) + row.limit;
+              $scope.exBalanceTotal = parseInt($scope.exBalanceTotal) + row.balance;
+              $scope.exPosuresTotal = parseInt($scope.exPosuresTotal) + row.exposure;
+            }
+          }
+         
+           $scope.General = pl.data;
+           blockUI.stop();
 
         },
             function (errorPl) {
                 $scope.error = 'failure loading General Data', errorPl;
+                blockUI.stop();
             });
     } 
 
     $scope.save = function () {
-        //var General = {
-        //    StudentID: $scope.Student.studentID,
-        //    Name: $scope.Student.name,
-        //    Email: $scope.Student.email,
-        //    Class: $scope.Student.class,
-        //    EnrollYear: $scope.Student.enrollYear,
-        //    City: $scope.Student.city,
-        //    Country: $scope.Student.country
-        //};
-
-        //var promisePutStudent = GenarelService.put($scope.General.CustId, General);
-        //debugger;
+        blockUI.start('Please wait...');
         var promisePutStudent = GeneralService.put($scope.General.entData.cust_id, JSON.stringify($scope.General.entData));
         promisePutStudent.then(function (pl) {
-            //$location.path("/showstudents");
-            alert('Saved Successfully');
+            toaster.pop('success', "success", "Saved Successfully");
+            blockUI.stop();
         },
             function (errorPl) {
-          //      debugger;
+                toaster.pop('error', "error", "Error while saving");
                 $scope.error = 'Failure loading General', errorPl;
+                blockUI.stop();
             });
     };
 

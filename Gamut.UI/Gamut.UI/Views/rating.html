@@ -1,0 +1,83 @@
+<style type="text/css">
+.tabledata tbody tr:nth-child(n+3) {
+    display: none;
+}
+
+#table-wrapper {
+  position:relative;
+}
+#table-scroll {
+  height:456px;
+  overflow:auto;  
+  margin-top:20px;
+}
+#table-wrapper table {
+  width:100%;
+    
+}
+
+#table-wrapper table thead th .text {
+  position:absolute;   
+  top:-20px;
+  z-index:2;
+  height:20px;
+  width:35%;
+}
+</style>
+
+<div class="container">
+    <div class="row">
+       <div class="col-lg-12">
+            <div class="col-lg-3" style="margin-left: 26%;border: 2px solid black;width: 175px;">
+                From :
+            </div>
+            <div class="col-lg-1"></div>
+            <div class="col-lg-3" style="border: 2px solid black;width: 175px;">
+                To :
+             </div>
+       </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            &nbsp;
+        </div>
+    </div>
+</div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <button class="showall btn btn-info" ng-click="removeClass()"ng-show="showButton"> 
+                        <span class="glyphicon glyphicon-plus"></span> History</button>
+                <button class="showall btn btn-warning" ng-click="addClass()" ng-show="hideButton">
+                        <span class="glyphicon glyphicon-minus"></span> History</button>
+            </div>
+        </div>
+    </div>
+    
+<div class="container" id="table-wrapper">
+        <div class="row" id="table-scroll">
+           <div class="col-lg-12">
+                <table class="{{cssClass}}" id="tabledata">
+                    <tr>
+                        <th class="text">Particulars</th>
+                        <th class="text">Date</th>
+                        <th class="text">Internal</th>
+                        <th class="text">Date</th>
+                        <th class="text">By ID</th>
+                        <th class="text">Source</th>
+                    </tr>
+                    <tr ng-repeat= "List in ratingList">
+                        <td>{{List.particular}}</td>
+                        <td>{{List.dateFrom | date:'yyyy-MM-dd'}}</td>
+                        <td>{{List.ratingValue}}</td>
+                        <td>{{List.dateTo | date:'yyyy-MM-dd'}}</td>
+                        <td>{{List.byId}}</td>
+                        <td>{{List.source}}</td>
+                    </tr>
+                </table>
+                </div>
+           </div>
+    </div>
+    
