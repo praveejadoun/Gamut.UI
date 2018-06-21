@@ -1,16 +1,41 @@
-
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
 <link href="Gamut.UI/css/bootstrap.min.css" rel="stylesheet" />
 <link href="Gamut.UI/css/Main.css" rel="stylesheet" />
+<link rel="stylesheet" href="Gamut.UI/css/angular-block-ui.min.css"/>
+<link rel="stylesheet" href="Gamut.UI/css/toaster.min.css"/>
 
 <script src="Gamut.UI/Scripts/angular.min.js"></script>
 <script src="Gamut.UI/Scripts/angular-route.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-filter/0.5.8/angular-filter.js"></script>
+<script src="Gamut.UI/Scripts/angular-block-ui.min.js"></script>
+<script src="Gamut.UI/Scripts/toaster.min.js"></script>
+
+<script data-require="ui-bootstrap@0.5.0" data-semver="0.5.0" src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.6.0.js"></script>
 <script src="Gamut.UI/App.js"></script>
 <script src="Gamut.UI/Controllers/GeneralController.js"></script>
+<script src="Gamut.UI/Controllers/Soc124Controller.js"></script>
 <script src="Gamut.UI/Controllers/AuthController.js"></script>
+<script src="Gamut.UI/Controllers/intrestRate.js"></script>
+<script src="Gamut.UI/Controllers/rating.js"></script>
+<script src="Gamut.UI/Controllers/security.js"></script>
 <script src="Gamut.UI/Services.js"></script>
+ 
+<style>
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
 
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
 
-<body data-ng-app="ApplicationModule" data-ng-controller="AuthController">
+</style>
+
+<body data-ng-app="ApplicationModule" ng-cloak="true" data-ng-controller="AuthController">
     <!--<div class="wrapper" data-ng-show="showMenu">-->
     <div class="wrapper">
         <!-- Sidebar Holder -->
@@ -29,7 +54,7 @@
             <ul class="list-unstyled components">
 
                 <li>
-                    <a href="index">
+                    <a href="#/index">
                         <i class="glyphicon glyphicon-home"></i>
                         Home
                     </a>
@@ -41,19 +66,19 @@
                         </a>
                     </li>-->
                 <li>
-                    <a href="general">
+                    <a href="#/general">
                         <i class="glyphicon glyphicon-link"></i>
                         General
                     </a>
                 </li>
                 <li>
-                    <a href="show">
+                    <a href="#/soc124">
                         <i class="glyphicon glyphicon-link"></i>
                         SO/Cond/Approvals
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="#/intrestRate">
                         <i class="glyphicon glyphicon-link"></i>
                         Interest Rate
                     </a>
@@ -65,13 +90,13 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="#/security">
                         <i class="glyphicon glyphicon-link"></i>
                         Security Details
                     </a>
                 </li>
                 <li>
-                    <a href="documents">
+                    <a href="#/documents">
                         <i class="glyphicon glyphicon-link"></i>
                         Reports / Documents
                     </a>
@@ -83,7 +108,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="#/rating">
                         <i class="glyphicon glyphicon-link"></i>
                         Ratings
                     </a>
@@ -143,7 +168,6 @@
         <div id="content" style="width:100%" class="navbar">
             <nav class="navbar navbar-inverse">
                 <div class="container-fluid">
-
                     <div class="navbar-header">
                         <button type="button" id="sidebarCollapseNav" class="btn btn-info navbar-btn">
                             <i class="glyphicon glyphicon-align-left"></i>
@@ -155,21 +179,67 @@
                             <li><h3> Inegrated Banking Solution</h3></li>
                         </ul>
                     </div>
-
-                    <div class="container-fluid">
+					<div class="container-fluid">
                         <ul class="nav navbar-nav navbar-right">
-
-                            <!--<li><input type="text" class="form-control" placeholder="Search"></li>
+							<!--<li><input type="text" class="form-control" placeholder="Search"></li>
                                 <li><button type="submit" class="btn btn-default">Search</button></li>!-->
                             <li><a class="btn-default" ng-click="Logout()"> Logout</a></li>
                         </ul>
-
                     </div>
-
                 </div>
+				<input type="text" ng-model="$root.select" typeahead-on-select="onSelect($item, $model, $label)" typeahead="customer.cust_Name for customer in $root.customers | filter:$viewValue | limitTo:8" class="form-control" placeholder="Search by Customer" style="width: 30% !important;margin-left: 59% !important;margin-top: 1% !important;">
             </nav>
-
-            <div data-ng-view></div>
+				<div class="container">
+					<div class="row">
+					   <div class="col-lg-12">
+							<div class="col-lg-4">
+								<table>
+								  <tr>
+									<th>Cust ID</th>
+									<th>{{$root.customer.cust_id}}</th>
+								  </tr>
+								  <tr>
+									<th>Pan No.</th>
+									<th>{{$root.customer.pan_No}}</th>
+								  </tr>
+								</table>
+							</div>
+							<div class="col-lg-4">
+								<table>
+								  <tr>
+									<th>Name</th>
+									<th>{{$root.customer.cust_Name}}</th>
+								  </tr>
+								  <tr>
+									<th>Constitution</th>
+									<th>{{$root.customer.constitution}}</th>
+								  </tr>
+								</table>
+							</div>
+							<div class="col-lg-4">
+								<table>
+								  <tr>
+									<th>Exposure</th>
+									<th>{{$root.customer.exposure}}</th>
+								  </tr>
+								  <tr>
+									<th>As on</th>
+									<th>{{$root.customer.exposure_AsOn | date:'yyyy-MM-dd'}}</th>
+								  </tr>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+				<br />
+				<toaster-container toaster-options="{'time-out': 3000,'positionClass': 'toast-top-center'}" class="ng-scope toast-top-center"></toaster-container>
+				<div class="container">
+					<div class="row">
+					   <div class="col-lg-12">
+							<div data-ng-view></div>
+						</div>
+					</div>
+				</div>
 
         </div>
 
@@ -189,7 +259,13 @@
                 $('#sidebar').toggleClass('active');
             });
         });
+		
+			$(".showall").click(function(){
+		$("#tabledata").removeClass("tabledata");
+	});
     </script>
+	
+	
 
 </body>
 
