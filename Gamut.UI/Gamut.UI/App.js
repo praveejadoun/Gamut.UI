@@ -1,5 +1,4 @@
-﻿/// <reference path="Views/intrestRate.html" />
-var app = angular.module("ApplicationModule", ["ngRoute", "ui.bootstrap",'angular.filter','toaster','blockUI']);
+﻿var app = angular.module("ApplicationModule", ["ngRoute", "ui.bootstrap",'angular.filter','toaster','blockUI']);
 
 app.factory("ShareData", function () {
     return { value: 0 }
@@ -28,9 +27,9 @@ app.config(['$routeProvider', '$locationProvider','$httpProvider', function ($ro
     }).when('/documents',{
         templateUrl: 'ManageData/Documents',
         controller: 'DocumentsController'
-    }).when('/logout',{
-        templateUrl: '/Home/Login',
-        //controller: 'GeneralController'
+    }).when('/login',{
+        templateUrl: 'Gamut.UI/Views/Login.html',
+        controller: 'AuthController'
         //$location.path("Home/login")
         //redirectTo: 'Home/Login'
     }).when('/intrestRate',{
@@ -51,8 +50,14 @@ app.config(['$routeProvider', '$locationProvider','$httpProvider', function ($ro
     
     // $locationProvider.html5Mode(true).hashPrefix('!')
     
-}]).run(function($rootScope,customerService,blockUI,toaster){
-    getcustomer('Maruti');
+}]).run(function($rootScope,customerService,blockUI,toaster,$route){
+    
+    if(localStorage.getItem("custId") == ""){
+        getcustomer('Maruti');
+    }else{
+        getcustomer(localStorage.getItem("custId"));
+    }
+
     function getcustomers() {
             blockUI.start('Please wait...');
             var customerList = customerService.getCustomerList();
@@ -83,6 +88,7 @@ app.config(['$routeProvider', '$locationProvider','$httpProvider', function ($ro
             var customerById = customerService.getCustomerById(Id);
             customerById.then(function (response) {
                 $rootScope.customer = response.data;
+                $route.reload();
                 blockUI.stop();
             },function (errorresponse) {
                 $rootScope.error = 'failure loading Customer By Id Data', errorresponse;

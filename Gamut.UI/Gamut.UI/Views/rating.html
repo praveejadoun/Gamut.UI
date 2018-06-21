@@ -23,28 +23,113 @@
   height:20px;
   width:35%;
 }
+
+table.tableizer-table {
+        font-size: 12px;
+        border: 1px solid #CCC;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    table[show-weeks] thead tr th {
+    padding: 0px;
+    font-size: 12px;
+    font-weight: normal;
+    padding-top:4px;
+    padding-bottom: 4px;
+    text-align: center;
+    margin: 0 auto;
+    padding-right: 5px;
+    padding-left: 5px;
+}
+table[show-weeks] thead tr td button:first-child
+{
+    background: transparent !important;
+}
+
+table[show-weeks] thead tr td button:last-child
+{
+    background: transparent !important;
+    
+}
+
+.icon-chevron-left:before {
+    content: "<";
+}
+
+.icon-chevron-right:before {
+    content: ">";
+}
+
+table[show-weeks] tbody tr td {
+    padding: 2px;
+    text-align: center;
+    font-size: 12px !important;
+    font-weight: normal;
+}
+
+table[show-weeks] tbody tr td button.btn-info {
+    padding: 2px;
+    text-align: center; 
+    background-color: #5bc0de;
+    border-color: #46b8da;
+    font-size: 12px;
+    font-weight: normal;
+    border-radius: 0px;
+}
+
+table[show-weeks] tbody tr td button {
+    padding: 2px;
+    text-align: center; 
+    border-radius: 0px;
+    background-color: whitesmoke;
+    border-color: whitesmoke;
+    font-size: 12px !important;
+    font-weight: normal;
+}
+
+    .tableizer-table td {
+        padding: 4px;
+        margin: 3px;
+        border: 1px solid #CCC;
+    }
+
+    .tableizer-table th {
+        background-color: #104E8B;
+        color: #FFF;
+        font-weight: bold;
+    }
 </style>
 
 <div class="container">
     <div class="row">
-       <div class="col-lg-12">
-            <div class="col-lg-3" style="margin-left: 26%;border: 2px solid black;width: 175px;">
-                From :
+        <div class="col-sm-12">
+            <div class="col-sm-4">
+                    <input
+                    id="startDate"
+                    type="text"
+                    class="form-control"
+                    ng-model="startDate"
+                    datepicker-popup="yyyy-MM-dd"
+                    close-text="Close"
+                    ng-required="true"/>
             </div>
-            <div class="col-lg-1"></div>
-            <div class="col-lg-3" style="border: 2px solid black;width: 175px;">
-                To :
-             </div>
-       </div>
-    </div>
-</div>
-<div class="container">
-    <div class="row">
-        <div class="col-lg-12">
-            &nbsp;
+            <div class="col-sm-4">
+                    <input
+                    id="endDate"
+                    type="text"
+                    class="form-control"
+                    ng-model="endDate"
+                    datepicker-popup="yyyy-MM-dd"
+                    close-text="Close"
+                    ng-required="true"/>
+            </div>
+            <div class="col-sm-4">
+                <button class="btn btn-info" ng-click="getRatingDataByDate()">Search</button>
+            </div>
         </div>
     </div>
 </div>
+<div class="container">&nbsp;</div>
     <div class="container">
         <div class="row">
             <div class="col-lg-12">

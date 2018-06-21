@@ -8,7 +8,8 @@ app.controller('SecurityController',function($scope,$location, $window, $rootSco
 
     function getSecurityData() {
 		blockUI.start('Please wait...');
-		var securityData = securityService.getSecurityList();
+		$scope.customerId = localStorage.getItem("custId");
+		var securityData = securityService.getSecurityById($scope.customerId);
         
         securityData.then(function (response) {
 			$scope.securityList = response.data;
