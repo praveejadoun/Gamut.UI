@@ -137,7 +137,8 @@
                         <td>Connection Since</td>
                         <td>
                             {{General.entData.connection_Since}}</td>
-                        <td>Bill Purchase</td>
+                        <!--<td>Bill Purchase</td>-->
+                        <td></td>
                         <!-- <td>{{General.entData.bill_Purchase_L}}</td>
                                 <td>{{General.entData.bill_Purchase_B}}</td>
                                 <td>{{General.entData.bill_Purchase_E}}</td>
@@ -178,10 +179,11 @@
                     <tr>
                         <td>Banking Argmt</td>
                         <td>
-                            <select data-ng-model="General.entData.banking_Argmt ">
-                                <option ng-selected="General.entData.banking_Argmt==x .lookUp_Value " ng-repeat="x in General.bankingArgmt
-                        " value="{{x.lookUp_Value}} ">{{x.lookUp_Value}}</option>
-                            </select>
+                            <!--<select data-ng-model="General.entData.banking_Argmt ">
+                            <option ng-selected="General.entData.banking_Argmt==x .lookUp_Value " ng-repeat="x in General.bankingArgmt
+                            " value="{{x.lookUp_Value}} ">{{x.lookUp_Value}}</option>
+                            </select>-->
+                            {{General.entData.banking_Argmt}}
                         </td>
                         <td>&nbsp;</td>
                         <!-- <td>Default</td>
@@ -209,7 +211,7 @@
                     </tr>
                     <tr>
                         <td>SMA</td>
-                        <td>SMA1/2/0 (Reason)/Default</td>
+                        <td>{{General.entData.sma}}</td>
                         <td>&nbsp;</td>
                         <!-- <td>Guarantor / Co-Obligant</td>
                                 <td> {{General.gur2name}}</td>
