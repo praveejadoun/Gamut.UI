@@ -92,7 +92,7 @@ app.service('ratingService', function ($http) {
      return $http.get("http://gamut.somee.com/api/RatingAPI");
      };
      this.getRatingById= function (Id) {
-        return $http.get("http://gamut.somee.com/api/RatingAPI/"+ Id);
+        return $http.get("http://gamut.somee.com/api/RatingCust/"+ Id);
         };
  });
 
@@ -140,10 +140,23 @@ app.service('AccountDetailService', function ($http) {
 
 //View Service API
 app.service('WarningIndicatorsService', function ($http) {
-    this.getWarningIndicatorsById= function (Id) {
-       return $http.get("http://gamut.somee.com/api/WarningIndicators/"+ Id);
+    this.getWarningIndicatorsByDate= function (Id, startDate, endDate) {
+       return $http.get("http://gamut.somee.com/api/WarningIndicatorsByDate/"+ Id +"/"+ startDate + "/"+ endDate);
     };
 });
+
+//News Service API
+app.service('NewsService', function ($http) {
+    this.getNewsById = function (Id) {
+       return $http.get("http://gamut.somee.com/api/news/"+ Id );
+    };
+
+    this.putNewsById = function (Id) {
+        return $http.put("http://gamut.somee.com/api/news/"+ Id );
+     };
+});
+
+
 
  //Financials Service API
  app.service("FinancialsService", function ($http) {

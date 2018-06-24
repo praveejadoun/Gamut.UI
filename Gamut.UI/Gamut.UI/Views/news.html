@@ -1,30 +1,17 @@
-<style type="text/css">
-.tabledata tbody tr:nth-child(n+3) {
-    display: none;
-}
-
-#table-wrapper {
-  position:relative;
-}
-#table-scroll {
-  height:456px;
-  overflow:auto;  
-  margin-top:20px;
-}
-#table-wrapper table {
-  width:100%;
+<style>
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
     
-}
+    td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
 
-#table-wrapper table thead th .text {
-  position:absolute;   
-  top:-20px;
-  z-index:2;
-  height:20px;
-  width:35%;
-}
-
-table.tableizer-table {
+      table.tableizer-table {
         font-size: 12px;
         border: 1px solid #CCC;
         font-family: Arial, Helvetica, sans-serif;
@@ -99,8 +86,7 @@ table[show-weeks] tbody tr td button {
         font-weight: bold;
     }
 </style>
-
-<!-- <div class="container">
+<div class="container">
     <div class="row">
         <div class="col-sm-12">
             <div class="col-sm-4">
@@ -111,7 +97,7 @@ table[show-weeks] tbody tr td button {
                     ng-model="startDate"
                     datepicker-popup="yyyy-MM-dd"
                     close-text="Close"
-                    ng-required="true"/>
+                    ng-required="true""/>
             </div>
             <div class="col-sm-4">
                     <input
@@ -124,45 +110,44 @@ table[show-weeks] tbody tr td button {
                     ng-required="true"/>
             </div>
             <div class="col-sm-4">
-                <button class="btn btn-info" ng-click="getRatingDataByDate()">Search</button>
+                <button class="btn btn-info" ng-click="getViewbyDate()">Search</button>
             </div>
         </div>
     </div>
-</div> -->
+</div>
+
 <div class="container">&nbsp;</div>
-    <div class="container">
+
+<div class="container">
         <div class="row">
-            <div class="col-lg-12">
-                <button class="showall btn btn-info" ng-click="removeClass()"ng-show="showButton"> 
-                        <span class="glyphicon glyphicon-plus"></span> History</button>
-                <button class="showall btn btn-warning" ng-click="addClass()" ng-show="hideButton">
-                        <span class="glyphicon glyphicon-minus"></span> History</button>
+            <div class="col-sm-12">
+                <table class="table tab-content table-bordered">
+                    <thead>
+                        <tr >
+                            <th>Date</th>
+                            <th>Scanned Images</th>
+                            <th>Source</th>
+                            <th>Steps Initiated</th>
+                            <th>Informed to</th>
+                            <th>Comments</th>
+                            <th>ID</th>
+                            <th>Save</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="List in newsDetailsDataList.entData">
+                            <td>{{List.updateDate | date:'dd-MM-yyyy'}}</td>
+                            <td><h4>{{List.heading}}</h4>
+                                <a href="{{List.url}}">{{List.url}}</a></td>
+                            <td>{{List.source}}</td>
+                            <td><input type="text" style="width: 75%;" name="StepsInitiated" ng-model="StepsInitiated"></td>
+                            <td><input type="text" style="width: 75%;" name="informedTo" ng-model="informedTo" value="{{List.informedTo}}"></td>
+                            <td><input type="text" style="width: 75%;" name="comments" ng-model="comments" value="{{List.comments}}"></td>
+                            <td>{{List.newsID}}</td>
+                            <td><button type="button" class="btn btn-success" ng-click="saveData(StepsInitiated, informedTo, comments, List.newsID, List.cust_id, List.$id)">Save</button></td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
-    
-<div class="container" id="table-wrapper">
-        <div class="row" id="table-scroll">
-           <div class="col-lg-12">
-                <table class="{{cssClass}}" id="tabledata">
-                    <tr>
-                        <th class="text">Particulars</th>
-                        <th class="text">Date</th>
-                        <th class="text">Internal</th>
-                        <th class="text">Date</th>
-                        <th class="text">By ID</th>
-                        <th class="text">Source</th>
-                    </tr>
-                    <tr ng-repeat= "List in ratingList.entData">
-                        <td>{{List.particular}}</td>
-                        <td>{{List.dateFrom | date:'dd-MM-yyyy'}}</td>
-                        <td>{{List.ratingValue}}</td>
-                        <td>{{List.dateTo | date:'dd-MM-yyyy'}}</td>
-                        <td>{{List.byId}}</td>
-                        <td>{{List.source}}</td>
-                    </tr>
-                </table>
-                </div>
-           </div>
-    </div>
-    
