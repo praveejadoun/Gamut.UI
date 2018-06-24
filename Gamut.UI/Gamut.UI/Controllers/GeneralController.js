@@ -1,4 +1,8 @@
 ﻿app.controller('GeneralController', function ($scope, $location, $window, $rootScope,toaster, userService,GeneralService,ShareData,blockUI) {
+   $scope.userId = localStorage.getItem("userName");
+    if($scope.userId == null){
+        location.reload(true);
+    }
     $scope.StudentID = 0;
     $scope.test = "General Controller";
     $scope.loginId = "admin";

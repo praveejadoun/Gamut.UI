@@ -1,4 +1,8 @@
 ﻿app.controller('Soc124Controller', function ($scope, $location, $window, $rootScope,$filter, userService,GeneralService,soc124Service,ShareData,blockUI) {
+    $scope.userId = localStorage.getItem("userName");
+    if($scope.userId == null){
+        $location.path('/');
+    }
     $scope.customerId = localStorage.getItem("custId");
     
     var Currentdate = new Date().getTime(),previousDate = 1000 * 60 * 60 * 24 * 365 * 2,

@@ -44,18 +44,48 @@ app.config(['$routeProvider', '$locationProvider','$httpProvider', function ($ro
     }).when('/soc124',{
         templateUrl: 'Gamut.UI/Views/ManageData/Soc124.html',
         controller: 'Soc124Controller'
+    }).when('/financials',{
+        templateUrl: 'Gamut.UI/Views/financials.html',
+        controller: 'FinancialsController'
+    }).when('/restucturing',{
+        templateUrl: 'Gamut.UI/Views/restucturing.html',
+        controller: 'RestucturingController'
+    }).when('/accountDetails',{
+        templateUrl: 'Gamut.UI/Views/accountDetails.html',
+        controller: 'AccountDetailsController'
     }).otherwise({
         redirectTo: '/'
     });
     
     // $locationProvider.html5Mode(true).hashPrefix('!')
     
-}]).run(function($rootScope,customerService,blockUI,toaster,$route){
+}]).run(function($rootScope,customerService,blockUI,toaster,$route,$location){
+   
+    if($rootScope.userId == null && localStorage.getItem("userName") == null){
+        $rootScope.userId = 0;
+        location.reload(true);
+    }else{
+        $rootScope.userId = localStorage.getItem("userName");
+    }
     
+    //$rootScope.userId = localStorage.getItem("userName");
+
     if(localStorage.getItem("custId") == ""){
         getcustomer('Maruti');
     }else{
         getcustomer(localStorage.getItem("custId"));
+    }
+
+    $rootScope.login = function(userName,password){
+        if(userName == "Admin" && password =="Admin"){
+            localStorage.setItem("userName", userName);
+            $rootScope.userId = localStorage.getItem("userName");
+        }
+    }
+    $rootScope.logout = function(){
+        localStorage.setItem("userName", 0);
+        $rootScope.userId = 0;
+        location.reload(true);
     }
 
     function getcustomers() {

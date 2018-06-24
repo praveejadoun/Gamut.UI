@@ -1,0 +1,45 @@
+<style>
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+    
+    td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+</style>
+<div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <table class="table tab-content table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Facility(+) A/c No.</th>
+                            <th>Sanctioned Limit</th>
+                            <th>Undisbursed</th>
+                            <th>Balance</th>
+                            <th>Arrears(Crital Arrears)</th>
+                            <th>ROI</th>
+                            <th>Period (M) (From-TO)</th>
+                            <th>Cash Margin</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="List in detailData">
+                            <td>{{List.accountNumber}}</td>
+                            <td>{{List.limit}}</td>
+                            <td>Field unknown</td>
+                            <td>{{List.balance}}</td>
+                            <td> {{List.arrears}}</td>
+                            <td>{{List.roi}}</td>
+                            <td>{{List.period}}</td>
+                            <td>{{List.cashMargin}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>

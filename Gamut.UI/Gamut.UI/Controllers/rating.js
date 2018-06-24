@@ -1,5 +1,8 @@
 app.controller('RatingController',function($scope,$location,$filter, $window, $rootScope,ratingService,blockUI){
-
+	$scope.userId = localStorage.getItem("userName");
+    if($scope.userId == null){
+        $location.path('/');
+    }
 	getRatingData();
 	$scope.cssClass = "tabledata";
 	$scope.hideButton = false;

@@ -1,5 +1,8 @@
 app.controller('IntrestRateController',function($scope,$location, $window, $rootScope,intrestRateService,blockUI){
-
+	$scope.userId = localStorage.getItem("userName");
+    if($scope.userId == null){
+        $location.path('/');
+    }
 	$scope.cashCredit = [];
 	$scope.termLoan = [];
 	$scope.pcl = [];

@@ -1,0 +1,158 @@
+<style type="text/css">
+    .hide{
+        color: aliceblue;
+    }
+</style>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="col-sm-4">
+                <table style="height: 72px;">
+                    <tr>
+                        <th class="text" style="padding-left: 36%;">Account </th>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-sm-4">
+                <table>
+                    <tr>
+                        <th class="text">Restructured : </th>
+                        <!-- <th class="text">{{endDateData.accountRestructured}}</th> -->
+                        <th class="text"><select ng-model="selecteRestructured" ng-options="x for x in dropDown"></select></th>
+                    </tr>
+                    <tr>
+                        <th class="text">Rescheduled : </th>
+                        <th class="text"><select ng-model="selecteRescheduled" ng-options="x for x in dropDown"></select></th>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-sm-4">
+                <table>
+                    <tr>
+                        <th class="text">ID No : </th>
+                        <th class="text">{{endDateData.idNo}}</th>
+                    </tr>
+                    <tr>
+                    <th class="text">Dated : </th>
+                        <th class="text">{{endDateData.soApplicationDate| date:'yyyy-MM-dd'}}</th>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="col-sm-12">&nbsp;</div>
+        <div class="col-sm-12">
+            <table>
+                <tr>
+                    <th class="text">Account No.</th>
+                    <th class="text">Type</th>
+                    <th class="text">Date</th>
+                    <th class="text">Cut-Off</th>
+                    <th class="text">Sacrifice</th>
+                    <th class="text">Repayment Start Date</th>
+                    <th class="text">Frequency</th>
+                </tr>
+                <tr ng-repeat= "List in detailData">
+                    <td>{{List.accountNo}}</td>
+                    <td>{{List.type}}</td>
+                    <td>{{List.accountDate | date:'yyyy-MM-dd'}}</td>
+                    <td>{{List.cutofDate | date:'yyyy-MM-dd'}}</td>
+                    <td>{{List.sacrifice}}</td>
+                    <td>{{List.repaymentStartDate | date:'yyyy-MM-dd'}}</td>
+                    <td>{{List.frequency}}</td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-sm-12">&nbsp;</div>
+        <div class="col-sm-12">
+            <div class="col-sm-2">&nbsp;</div>
+            <div class="col-sm-8">
+                <div class="col-sm-6">
+                    <table>
+                        <tr>
+                            <th class="text">Checked By CRMD : </th>
+                            <th class="text">{{endDateData.checkedByCRMD}}</th>
+                        </tr>
+                    </table>
+                </div>
+                <div class="col-sm-6">
+                    <table>
+                        <tr>
+                            <th class="text">ID : </th>
+                            <th class="text">{{endDateData.pfNo}}</th>
+                        </tr>
+                    </table>
+                    <br>
+                </div>
+                <table>
+                    <tr>
+                        <th class="text">If not Correct Follow-up date :</th>
+                        <th class="text">{{endDateData.followupDate| date:'yyyy-MM-dd'}}</th>
+                    </tr>
+                </table>
+                <br />
+                <table>
+                    <tr>
+                        <th class="text">Account Regularised or Out of Restucturing Package : </th>
+                        <th class="text">{{endDateData.accountRegularisedDate| date:'yyyy-MM-dd'}}</th>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-sm-3">&nbsp;</div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">&nbsp;</div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="col-sm-6">
+                <table>
+                    <tr>
+                        <th class="text">Project Type : </th>
+                        <th class="text">{{endDateData.projectType}}</th>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">&nbsp;</div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12"> 
+            <div class="col-sm-4"> 
+                <table>
+                    <tr>
+                        <th class="text">Original DCCO : </th>
+                        <th class="text">{{endDateData.dccoDate | date:'yyyy-MM-dd'}}</th>
+                    </tr>
+                </table>
+            </div> 
+            <div class="col-sm-4"> 
+                <table>
+                    <tr>
+                        <th class="text">Extended : </th>
+                        <th class="text">{{endDateData.extendedDate | date:'yyyy-MM-dd'}}</th>
+                    </tr>
+                </table>
+            </div> 
+            <div class="col-sm-4"> 
+                <table>
+                    <tr>
+                         <th class="text">Actual : </th>
+                        <th class="text">{{endDateData.actualDate | date:'yyyy-MM-dd'}}</th>
+                    </tr>
+                </table>
+            </div> 
+        </div>
+    </div>
+</div>

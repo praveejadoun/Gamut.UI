@@ -113,6 +113,31 @@ app.service('soc124Service', function ($http) {
         };
  });
 
+ //Financials Service API
+app.service('FinancialService', function ($http) {
+    this.getFinancialsById= function (Id) {
+       return $http.get("http://gamut.somee.com/api/FinancialResultAPI/"+ Id);
+    };
+
+    this.getFinancialsByTrendz= function (Id,trendz) {
+        return $http.get("http://gamut.somee.com/api/FinancialResultAPI/"+ Id +"?trendz=" + trendz);
+    };
+});
+
+//Restucturing Service API
+app.service('RestucturingService', function ($http) {
+    this.getRestucturingById= function (Id) {
+       return $http.get("http://gamut.somee.com/api/Restucturing/"+ Id);
+    };
+});
+
+//Account Details Service API
+app.service('AccountDetailService', function ($http) {
+    this.getAccountDetailsById= function (Id) {
+       return $http.get("http://gamut.somee.com/api/AccountDetails/"+ Id);
+    };
+});
+
 
  //Financials Service API
  app.service("FinancialsService", function ($http) {

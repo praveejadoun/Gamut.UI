@@ -1,4 +1,8 @@
 app.controller('SecurityController',function($scope,$location, $window, $rootScope,securityService,blockUI){
+	$scope.userId = localStorage.getItem("userName");
+    if($scope.userId == null){
+        $location.path('/');
+    }
 	$scope.primary = [];
 	$scope.collateral = [];
 	$scope.others = [];
