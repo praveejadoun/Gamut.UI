@@ -17,12 +17,12 @@
                 <table>
                     <tr>
                         <th class="text">Restructured : </th>
-                        <!-- <th class="text">{{endDateData.accountRestructured}}</th> -->
-                        <th class="text"><select ng-model="selecteRestructured" ng-options="x for x in dropDown"></select></th>
+                        <th class="text">{{endDateData.accountRestructured}}</th>
+                        <!-- <th class="text"><select ng-model="selecteRestructured" ng-options="x for x in dropDown"></select></th> -->
                     </tr>
                     <tr>
                         <th class="text">Rescheduled : </th>
-                        <th class="text"><select ng-model="selecteRescheduled" ng-options="x for x in dropDown"></select></th>
+                        <th class="text">{{endDateData.accountRescheduled}}</th>
                     </tr>
                 </table>
             </div>
@@ -34,7 +34,7 @@
                     </tr>
                     <tr>
                     <th class="text">Dated : </th>
-                        <th class="text">{{endDateData.soApplicationDate| date:'yyyy-MM-dd'}}</th>
+                        <th class="text">{{endDateData.soApplicationDate| date:'dd-MM-yyyy'}}</th>
                     </tr>
                 </table>
             </div>
@@ -54,10 +54,10 @@
                 <tr ng-repeat= "List in detailData">
                     <td>{{List.accountNo}}</td>
                     <td>{{List.type}}</td>
-                    <td>{{List.accountDate | date:'yyyy-MM-dd'}}</td>
-                    <td>{{List.cutofDate | date:'yyyy-MM-dd'}}</td>
+                    <td>{{List.accountDate | date:'dd-MM-yyyy'}}</td>
+                    <td>{{List.cutofDate | date:'dd-MM-yyyy'}}</td>
                     <td>{{List.sacrifice}}</td>
-                    <td>{{List.repaymentStartDate | date:'yyyy-MM-dd'}}</td>
+                    <td>{{List.repaymentStartDate | date:'dd-MM-yyyy'}}</td>
                     <td>{{List.frequency}}</td>
                 </tr>
             </table>
@@ -86,14 +86,14 @@
                 <table>
                     <tr>
                         <th class="text">If not Correct Follow-up date :</th>
-                        <th class="text">{{endDateData.followupDate| date:'yyyy-MM-dd'}}</th>
+                        <th class="text">{{endDateData.followupDate| date:'dd-MM-yyyy'}}</th>
                     </tr>
                 </table>
                 <br />
                 <table>
                     <tr>
                         <th class="text">Account Regularised or Out of Restucturing Package : </th>
-                        <th class="text">{{endDateData.accountRegularisedDate| date:'yyyy-MM-dd'}}</th>
+                        <th class="text">{{endDateData.accountRegularisedDate| date:'dd-MM-yyyy'}}</th>
                     </tr>
                 </table>
             </div>
@@ -133,7 +133,7 @@
                 <table>
                     <tr>
                         <th class="text">Original DCCO : </th>
-                        <th class="text">{{endDateData.dccoDate | date:'yyyy-MM-dd'}}</th>
+                        <th class="text">{{endDateData.dccoDate | date:'dd-MM-yyyy'}}</th>
                     </tr>
                 </table>
             </div> 
@@ -141,7 +141,7 @@
                 <table>
                     <tr>
                         <th class="text">Extended : </th>
-                        <th class="text">{{endDateData.extendedDate | date:'yyyy-MM-dd'}}</th>
+                        <th class="text">{{endDateData.extendedDate | date:'dd-MM-yyyy'}}</th>
                     </tr>
                 </table>
             </div> 
@@ -149,7 +149,7 @@
                 <table>
                     <tr>
                          <th class="text">Actual : </th>
-                        <th class="text">{{endDateData.actualDate | date:'yyyy-MM-dd'}}</th>
+                        <th class="text">{{endDateData.actualDate | date:'dd-MM-yyyy'}}</th>
                     </tr>
                 </table>
             </div> 

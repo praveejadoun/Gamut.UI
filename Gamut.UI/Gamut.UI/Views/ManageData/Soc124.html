@@ -124,12 +124,12 @@ table[show-weeks] tbody tr td button {
                     <tbody>
                         <tr ng-repeat="List in soc124DataList">
                             <td>{{List.entData.sourceSystemId}}</td>
-                            <td>{{List.entData.approvalDate | date:'yyyy-MM-dd'}}</td>
+                            <td>{{List.entData.approvalDate | date:'dd-MM-yyyy'}}</td>
                             <td>{{List.entData.via}}</td>
                             <td>{{List.entData.approvalFor}}</td>
                             <td>{{List.entData.isCompiled}}</td>
-                            <td> {{List.entData.followUpDate | date:'yyyy-MM-dd'}}</td>
-                            <td>{{List.entData.compiledDate | date:'yyyy-MM-dd'}}</td>
+                            <td> {{List.entData.followUpDate | date:'dd-MM-yyyy'}}</td>
+                            <td>{{List.entData.compiledDate | date:'dd-MM-yyyy'}}</td>
                         </tr>
                     </tbody>
                 </table>

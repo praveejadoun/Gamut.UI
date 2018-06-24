@@ -14,9 +14,9 @@
 <div class="container">
         <div class="row">
             <div class="col-sm-12">
-                <table class="table tab-content table-bordered">
+                <table class="table tab-content table-bordered" ng-repeat= "(key, value) in detailData | groupBy: 'nature'">
                     <thead>
-                        <tr>
+                        <tr >
                             <th>Facility(+) A/c No.</th>
                             <th>Sanctioned Limit</th>
                             <th>Undisbursed</th>
@@ -28,10 +28,10 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr ng-repeat="List in detailData">
+                        <tr ng-repeat="List in value">
                             <td>{{List.accountNumber}}</td>
                             <td>{{List.limit}}</td>
-                            <td>Field unknown</td>
+                            <td>{{List.Undisbursed}}</td>
                             <td>{{List.balance}}</td>
                             <td> {{List.arrears}}</td>
                             <td>{{List.roi}}</td>

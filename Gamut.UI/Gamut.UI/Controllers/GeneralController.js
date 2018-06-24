@@ -20,6 +20,7 @@
             $scope.exBalanceTotal = 0;
             $scope.exPosuresTotal = 0;
            var exposuresList = pl.data.exposures;
+           $scope.entData= pl.data.entData;
            for (var prop in exposuresList) {
             if (exposuresList.hasOwnProperty(prop)) { 
                

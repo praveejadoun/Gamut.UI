@@ -18,16 +18,16 @@
             $scope.endDateData = response.data.entData;
             $scope.selecteRestructured = response.data.entData.accountRestructured;
             $scope.selecteRescheduled = response.data.entData.accountRescheduled;
-            if($scope.selecteRestructured == "yes"){
-                $scope.selecteRestructured = $scope.dropDown[0];
-            }else{
-                $scope.selecteRestructured = $scope.dropDown[1];
-            }
-            if($scope.selecteRescheduled == "yes"){
-                $scope.selecteRescheduled = $scope.dropDown[0];
-            }else{
-                $scope.selecteRescheduled = $scope.dropDown[1];
-            }
+            // if($scope.selecteRestructured == "yes"){
+            //     $scope.selecteRestructured = $scope.dropDown[0];
+            // }else{
+            //     $scope.selecteRestructured = $scope.dropDown[1];
+            // }
+            // if($scope.selecteRescheduled == "yes"){
+            //     $scope.selecteRescheduled = $scope.dropDown[0];
+            // }else{
+            //     $scope.selecteRescheduled = $scope.dropDown[1];
+            // }
             blockUI.stop();
         },function (errorresponse) {
             blockUI.stop();

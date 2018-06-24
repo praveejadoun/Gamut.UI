@@ -80,7 +80,7 @@
                                 <td>Exposure</td> -->
                     </tr>
                     <tr>
-                        <td>Sector (Sub Sector)</td>
+                        <td>Sector - Sub Sector</td>
                         <td>{{General.entData.sector_SubSector}}</td>
                         <td>&nbsp;</td>
                         <!-- <td>Working Capital</td>
@@ -101,11 +101,11 @@
                     </tr>
                     <tr>
                         <td>Govt Sponsored</td>
-                        <td>
-                            <select data-ng-model="General.entData.govt_sponsored ">
+                        <td>{{General.entData.govt_sponsored}}
+                            <!-- <select data-ng-model="General.entData.govt_sponsored ">
                                 <option ng-selected="General.entData.govt_sponsored==x .lookUp_Value " ng-repeat="x in General.lookupGovtSponsored
                         " value="{{x.lookUp_Value}} ">{{x.lookUp_Value}}</option>
-                            </select>
+                            </select> -->
                         </td>
                         <td>&nbsp;</td>
                         <!-- <td>Bank Guarantee</td>
@@ -125,7 +125,7 @@
                     <tr>
                         <td>Incorporation</td>
                         <td>
-                            {{General.entData.incorporation}}
+                            {{General.entData.incorporation| date:'dd-MM-yyyy'}}
                         </td>
                         <td>&nbsp;</td>
                         <!-- <td>PCL</td>
@@ -136,7 +136,7 @@
                     <tr>
                         <td>Connection Since</td>
                         <td>
-                            {{General.entData.connection_Since}}</td>
+                            {{General.entData.connection_Since| date:'dd-MM-yyyy'}}</td>
                         <!--<td>Bill Purchase</td>-->
                         <td></td>
                         <!-- <td>{{General.entData.bill_Purchase_L}}</td>
@@ -151,7 +151,7 @@
                         <td>
                             <!--<input type="date " id="exampleInput " name="input " ng-model="General.entData.internal_Rating_AsOn "
                             placeholder="yyyy-MM-dd " min="2013-01-01 " max="2013-12-31 " required />-->
-                            {{General.entData.internal_Rating_AsOn}}
+                            As on {{General.entData.internal_Rating_AsOn| date:'dd-MM-yyyy'}}
                         </td>
                         <!-- <td>Total</td>
                                 <td>&nbsp;</td>
@@ -161,7 +161,7 @@
                     <tr>
                         <td>External Rating</td>
                         <td>{{General.entData.external_Rating}}</td>
-                        <td>As on {{General.entData.external_Rating_AsOn}}</td>
+                        <td>As on {{General.entData.external_Rating_AsOn| date:'dd-MM-yyyy'}}</td>
                         <!-- <td>&nbsp;</td>
                                 <td>&nbsp;</td>
                                 <td>&nbsp;</td>
@@ -220,11 +220,11 @@
                     </tr>
                     <tr>
                         <td>DCCO</td>
-                        <td>
-                            <select data-ng-model="General.entData.dCCO ">
+                        <td>{{General.entData.dcco}}
+                            <!-- <select data-ng-model="General.entData.dCCO ">
                                 <option ng-selected="General.entData.dcco==x .lookUp_Value " ng-repeat="x in General.lookupDCCO
                         " value="{{x.lookUp_Value}} ">{{x.lookUp_Value}}</option>
-                            </select>
+                            </select> -->
                         </td>
                         <td>
                             {{General.entData.dccO_AsOn}}</td>
@@ -236,11 +236,11 @@
                     </tr>
                     <tr>
                         <td>Takeover</td>
-                        <td>
-                            <select data-ng-model="General.entData.takeover ">
+                        <td>{{General.entData.takeover}}
+                            <!-- <select data-ng-model="General.entData.takeover ">
                                 <option ng-selected="General.entData.takeover==x .lookUp_Value " ng-repeat="x in General.takeover
                         " value="{{x.lookUp_Value}} ">{{x.lookUp_Value}}</option>
-                            </select>
+                            </select> -->
                         </td>
                         <td>{{General.entData.takeover_AsOn}}</td>
                         <!-- <td>Promoter's/ Directors</td>
@@ -331,8 +331,8 @@
                     <table>
                     <tr class="row2">
                         <td>Default</td>
-                        <td colspan="2">No of banks/FI(R-:UR-)</td>
-                        <td>As on 12/12/2017</td>
+                        <td colspan="2">{{entData.defaults}}</td>
+                        <td>As on {{entData.defaults_As_On| date:'dd-MM-yyyy'}}</td>
                     </tr>
                     </table>
                     <br />

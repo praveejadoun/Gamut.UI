@@ -53,6 +53,9 @@ app.config(['$routeProvider', '$locationProvider','$httpProvider', function ($ro
     }).when('/accountDetails',{
         templateUrl: 'Gamut.UI/Views/accountDetails.html',
         controller: 'AccountDetailsController'
+    }).when('/view',{
+        templateUrl: 'Gamut.UI/Views/view.html',
+        controller: 'ViewController'
     }).otherwise({
         redirectTo: '/'
     });

@@ -3,6 +3,7 @@
 <link href="Gamut.UI/css/Main.css" rel="stylesheet" />
 <link rel="stylesheet" href="Gamut.UI/css/angular-block-ui.min.css"/>
 <link rel="stylesheet" href="Gamut.UI/css/toaster.min.css"/>
+<link href="Gamut.UI/css/Login.css" rel="stylesheet" />
 
 <script src="Gamut.UI/Scripts/angular.min.js"></script>
 <script src="Gamut.UI/Scripts/angular-route.min.js"></script>
@@ -18,6 +19,10 @@
 <script src="Gamut.UI/Controllers/intrestRate.js"></script>
 <script src="Gamut.UI/Controllers/rating.js"></script>
 <script src="Gamut.UI/Controllers/security.js"></script>
+<script src="Gamut.UI/Controllers/financials.js"></script>
+<script src="Gamut.UI/Controllers/restucturing.js"></script>
+<script src="Gamut.UI/Controllers/accountDetails.js"></script>
+<script src="Gamut.UI/Controllers/view.js"></script>
 <script src="Gamut.UI/Services.js"></script>
  
 <style>
@@ -35,9 +40,41 @@ td, th {
 
 </style>
 
-<body data-ng-app="ApplicationModule" ng-cloak="true" data-ng-controller="AuthController">
+<body data-ng-app="ApplicationModule" ng-cloak="true">
     <!--<div class="wrapper" data-ng-show="showMenu">-->
-    <div class="wrapper">
+	<!-- Before Login-->
+	<div class="container" ng-if="$root.userId == 0">
+        <div class="col-md-10 col-md-offset-1 main">
+            <div class="col-md-6 left-side">
+                <h3>Gamut</h3>
+                <p>Please Login</p>
+                <br>
+            </div>
+            <div class="col-md-6 right-side">
+                <h3>Login</h3>
+                <form>
+                    <!--Form with header-->
+                    <div class="form" >
+                        <div class="col-sm-10">
+                            <label for="form2" class="">usersname</label>
+                            <input type="text" id="form2" data-ng-model="$root.userName" class="form-control">
+                        </div>
+                        <div class="col-sm-10">
+                            <label for="form4">password</label>
+                            <input type="password" id="form4" data-ng-model="$root.password" class="form-control">
+                        </div>
+						<div class="col-sm-10">&nbsp;</div>
+                        <div class="col-sm-10">
+                            <input type="submit" id="submit" class="btn btn-deep-purple" data-ng-click="$root.login($root.userName,$root.password)" />
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+	
+	<!-- After Login-->
+    <div class="wrapper"  ng-if="$root.userId != 0">
         <!-- Sidebar Holder -->
         <nav id="sidebar">
             <div class="navbar-header navbar-right">
@@ -84,7 +121,7 @@ td, th {
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="#/financials">
                         <i class="glyphicon glyphicon-link"></i>
                         Financials
                     </a>
@@ -114,7 +151,7 @@ td, th {
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="#/restucturing">
                         <i class="glyphicon glyphicon-link"></i>
                         Restructing / Rescheduling
                     </a>
@@ -156,9 +193,15 @@ td, th {
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="#/accountDetails">
                         <i class="glyphicon glyphicon-link"></i>
                         Account Details
+                    </a>
+                </li>
+				 <li>
+                    <a href="#/view">
+                        <i class="glyphicon glyphicon-link"></i>
+                       View
                     </a>
                 </li>
             </ul>
@@ -181,9 +224,7 @@ td, th {
                     </div>
 					<div class="container-fluid">
                         <ul class="nav navbar-nav navbar-right">
-							<!--<li><input type="text" class="form-control" placeholder="Search"></li>
-                                <li><button type="submit" class="btn btn-default">Search</button></li>!-->
-                            <li><a class="btn-default" ng-click="Logout()"> Logout</a></li>
+                            <li><button type="button" ng-click="$root.logout()" class="btn btn-danger">Logout</button></li>
                         </ul>
                     </div>
                 </div>

@@ -138,6 +138,12 @@ app.service('AccountDetailService', function ($http) {
     };
 });
 
+//View Service API
+app.service('WarningIndicatorsService', function ($http) {
+    this.getWarningIndicatorsById= function (Id) {
+       return $http.get("http://gamut.somee.com/api/WarningIndicators/"+ Id);
+    };
+});
 
  //Financials Service API
  app.service("FinancialsService", function ($http) {
