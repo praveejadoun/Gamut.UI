@@ -148,11 +148,11 @@ app.service('WarningIndicatorsService', function ($http) {
 //News Service API
 app.service('NewsService', function ($http) {
     this.getNewsById = function (Id) {
-       return $http.get("http://gamut.somee.com/api/news/"+ Id );
+       return $http.get("http://gamut.somee.com/api/News/"+ Id );
     };
 
-    this.putNewsById = function (Id) {
-        return $http.put("http://gamut.somee.com/api/news/"+ Id );
+    this.putNewsById = function (Id, data) {
+        return $http.put("http://gamut.somee.com/api/News/"+ Id , data);
      };
 });
 

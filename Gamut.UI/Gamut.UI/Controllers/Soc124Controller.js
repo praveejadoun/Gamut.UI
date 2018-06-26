@@ -13,8 +13,8 @@
     getSoc124();
     function getSoc124() {
         blockUI.start('Please wait...');
-        $scope.formatedStartDate = $filter('date')($scope.startDate, "yyyy-MM-dd");
-        $scope.formatedendDateDate = $filter('date')($scope.endDate, "yyyy-MM-dd");
+        $scope.formatedStartDate = $filter('date')($scope.startDate, "dd-MM-yyyy");
+        $scope.formatedendDateDate = $filter('date')($scope.endDate, "dd-MM-yyyy");
         $scope.customerId = localStorage.getItem("custId");
         var soc124Data = soc124Service.getSoc124ByDate($scope.customerId, $scope.formatedStartDate, $scope.formatedendDateDate);
         

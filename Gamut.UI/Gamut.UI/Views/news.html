@@ -1,4 +1,5 @@
 <style>
+   a.ex1:hover, a.ex1:active {color:#7386d5;}
     table {
         font-family: arial, sans-serif;
         border-collapse: collapse;
@@ -95,7 +96,7 @@ table[show-weeks] tbody tr td button {
                     type="text"
                     class="form-control"
                     ng-model="startDate"
-                    datepicker-popup="yyyy-MM-dd"
+                    datepicker-popup="dd-MM-yyyy"
                     close-text="Close"
                     ng-required="true""/>
             </div>
@@ -105,7 +106,7 @@ table[show-weeks] tbody tr td button {
                     type="text"
                     class="form-control"
                     ng-model="endDate"
-                    datepicker-popup="yyyy-MM-dd"
+                    datepicker-popup="dd-MM-yyyy"
                     close-text="Close"
                     ng-required="true"/>
             </div>
@@ -138,13 +139,13 @@ table[show-weeks] tbody tr td button {
                         <tr ng-repeat="List in newsDetailsDataList.entData">
                             <td>{{List.updateDate | date:'dd-MM-yyyy'}}</td>
                             <td><h4>{{List.heading}}</h4>
-                                <a href="{{List.url}}">{{List.url}}</a></td>
+                                <a href="{{List.url}}" class="ex1" target="_blank">{{List.url}}</a></td>
                             <td>{{List.source}}</td>
                             <td><input type="text" style="width: 75%;" name="StepsInitiated" ng-model="StepsInitiated"></td>
                             <td><input type="text" style="width: 75%;" name="informedTo" ng-model="informedTo" value="{{List.informedTo}}"></td>
                             <td><input type="text" style="width: 75%;" name="comments" ng-model="comments" value="{{List.comments}}"></td>
                             <td>{{List.newsID}}</td>
-                            <td><button type="button" class="btn btn-success" ng-click="saveData(StepsInitiated, informedTo, comments, List.newsID, List.cust_id, List.$id)">Save</button></td>
+                            <td><button type="button" class="btn btn-success" ng-click="saveData(StepsInitiated, informedTo, comments, List.newsID, List.cust_id, List.heading,List.url,List.source)">Save</button></td>
                         </tr>
                     </tbody>
                 </table>

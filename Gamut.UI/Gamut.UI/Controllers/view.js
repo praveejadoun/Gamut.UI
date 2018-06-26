@@ -15,7 +15,7 @@
         $scope.formatedStartDate = $filter('date')($scope.startDate, "dd-MM-yyyy");
         $scope.formatedendDateDate = $filter('date')($scope.endDate, "dd-MM-yyyy");
         $scope.customerId = localStorage.getItem("custId");
-        var ViewDetailsData = WarningIndicatorsService.getWarningIndicatorsByDate($scope.customerId,  "1-1-1900", "1-1-2020");
+        var ViewDetailsData = WarningIndicatorsService.getWarningIndicatorsByDate($scope.customerId, $scope.formatedStartDate, $scope.formatedendDateDate);
         
         ViewDetailsData.then(function (response) {
             $scope.ViewDetailsDataList = response.data;

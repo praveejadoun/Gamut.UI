@@ -66,17 +66,24 @@ app.config(['$routeProvider', '$locationProvider','$httpProvider', function ($ro
     // $locationProvider.html5Mode(true).hashPrefix('!')
     
 }]).run(function($rootScope,customerService,blockUI,toaster,$route,$location){
-   
+  
+//     if(localStorage.getItem("userName") == 0){
+//       $rootScope.userId = localStorage.setItem("userId", "");
+//    }
+
     if($rootScope.userId == null && localStorage.getItem("userName") == null){
+        localStorage.setItem("userId",0);
         $rootScope.userId = 0;
-        location.reload(true);
+        if( $rootScope.userId == null || $rootScope.userId == undefined){
+            location.reload(true);
+        }
     }else{
         $rootScope.userId = localStorage.getItem("userName");
     }
     
     //$rootScope.userId = localStorage.getItem("userName");
 
-    if(localStorage.getItem("custId") == ""){
+    if(localStorage.getItem("custId") == "" || localStorage.getItem("custId") == null){
         getcustomer('Maruti');
     }else{
         getcustomer(localStorage.getItem("custId"));

@@ -1,4 +1,4 @@
-﻿app.controller('NewsController', function ($scope, $location, $filter, $window, $rootScope,$filter, userService,GeneralService,NewsService,ShareData,blockUI) {
+﻿app.controller('NewsController', function ($scope, $location, $filter, toaster, $window, $rootScope,$filter, userService,GeneralService,NewsService,ShareData,blockUI) {
     $scope.userId = localStorage.getItem("userName");
     if($scope.userId == null){
         $location.path('/');
@@ -30,14 +30,28 @@
         getViewDetails();
     }
 
-    $scope.saveData = function(StepsInitiated, informedTo, comments, newsID,cust_id,id){
+    $scope.saveData = function(StepsInitiated, informedTo, comments, newsID,cust_id,heading,url,source){
         var data = {
-            "$id":id,
+            "comments": comments,
             "cust_id": cust_id,
-            "newsID": newsID,
-            "StepsInitiated": StepsInitiated,
+            "heading": heading,
             "informedTo": informedTo,
-            "comments": comments
+            "newsID": newsID,
+            "source": source,
+            "url":url,
+            "StepsInitiated": StepsInitiated
         }
+
+        blockUI.start('Please wait...');
+        var newsResponse = NewsService.putNewsById(localStorage.getItem("custId"), data);
+        newsResponse.then(function (res) {
+            toaster.pop('success', "success", "Saved Successfully");
+            blockUI.stop();
+        },
+        function (errorres) {
+            toaster.pop('error', "error", "Error while saving");
+            $scope.error = 'Failure while saving news data', errorres;
+            blockUI.stop();
+        });
     }
 });
