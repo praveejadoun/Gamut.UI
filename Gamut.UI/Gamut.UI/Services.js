@@ -151,8 +151,8 @@ app.service('NewsService', function ($http) {
        return $http.get("http://gamut.somee.com/api/News/"+ Id );
     };
 
-    this.putNewsById = function (Id, data) {
-        return $http.put("http://gamut.somee.com/api/News/"+ Id , data);
+    this.putNewsById = function (Id, newsobj) {
+        return $http.put("http://gamut.somee.com/api/News/"+ Id , newsobj);
      };
 });
 

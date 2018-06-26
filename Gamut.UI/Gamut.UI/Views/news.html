@@ -141,11 +141,11 @@ table[show-weeks] tbody tr td button {
                             <td><h4>{{List.heading}}</h4>
                                 <a href="{{List.url}}" class="ex1" target="_blank">{{List.url}}</a></td>
                             <td>{{List.source}}</td>
-                            <td><input type="text" style="width: 75%;" name="StepsInitiated" ng-model="StepsInitiated"></td>
-                            <td><input type="text" style="width: 75%;" name="informedTo" ng-model="informedTo" value="{{List.informedTo}}"></td>
-                            <td><input type="text" style="width: 75%;" name="comments" ng-model="comments" value="{{List.comments}}"></td>
+                            <td></td>
+                            <td><input type="text" style="width: 75%;" name="informedTo" ng-model="List.informedTo" ></td>
+                            <td><input type="text" style="width: 75%;" name="comments" ng-model="List.comments" ></td>
                             <td>{{List.newsID}}</td>
-                            <td><button type="button" class="btn btn-success" ng-click="saveData(StepsInitiated, informedTo, comments, List.newsID, List.cust_id, List.heading,List.url,List.source)">Save</button></td>
+                            <td><button type="button" class="btn btn-success" ng-click="saveData(List.informedTo, List.comments, List.newsID, List.cust_id, List.heading,List.url,List.source, List.updateDate)">Save</button></td>
                         </tr>
                     </tbody>
                 </table>

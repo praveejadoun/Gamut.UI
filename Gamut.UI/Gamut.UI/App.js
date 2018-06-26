@@ -90,7 +90,7 @@ app.config(['$routeProvider', '$locationProvider','$httpProvider', function ($ro
     }
 
     $rootScope.login = function(userName,password){
-        if(userName == "Admin" && password =="Admin"){
+        if(userName == "admin" && password =="admin"){
             localStorage.setItem("userName", userName);
             $rootScope.userId = localStorage.getItem("userName");
         }

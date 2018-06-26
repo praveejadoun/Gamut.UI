@@ -30,7 +30,7 @@
         getViewDetails();
     }
 
-    $scope.saveData = function(StepsInitiated, informedTo, comments, newsID,cust_id,heading,url,source){
+    $scope.saveData = function(informedTo, comments, newsID,cust_id,heading,url,source,updatedDate,id){
         var data = {
             "comments": comments,
             "cust_id": cust_id,
@@ -39,11 +39,11 @@
             "newsID": newsID,
             "source": source,
             "url":url,
-            "StepsInitiated": StepsInitiated
+            "updateDate":updatedDate
         }
 
         blockUI.start('Please wait...');
-        var newsResponse = NewsService.putNewsById(localStorage.getItem("custId"), data);
+        var newsResponse = NewsService.putNewsById(newsID, data);
         newsResponse.then(function (res) {
             toaster.pop('success', "success", "Saved Successfully");
             blockUI.stop();
