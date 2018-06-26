@@ -46,13 +46,18 @@
   </PropertyGroup>
   <ItemGroup>
     <Content Include="Gamut.UI\App.js" />
+    <Content Include="Gamut.UI\Controllers\accountDetails.js" />
     <Content Include="Gamut.UI\Controllers\AuthController.js" />
+    <Content Include="Gamut.UI\Controllers\financials.js" />
     <Content Include="Gamut.UI\Controllers\GeneralController.js" />
     <Content Include="Gamut.UI\Controllers\GeneralController2.js" />
     <Content Include="Gamut.UI\Controllers\intrestRate.js" />
+    <Content Include="Gamut.UI\Controllers\news.js" />
     <Content Include="Gamut.UI\Controllers\rating.js" />
+    <Content Include="Gamut.UI\Controllers\restucturing.js" />
     <Content Include="Gamut.UI\Controllers\security.js" />
     <Content Include="Gamut.UI\Controllers\Soc124Controller.js" />
+    <Content Include="Gamut.UI\Controllers\view.js" />
     <Content Include="Gamut.UI\css\angular-block-ui.min.css" />
     <Content Include="Gamut.UI\css\bootstrap.css" />
     <Content Include="Gamut.UI\css\bootstrap.min.css" />
@@ -83,9 +88,12 @@
     <Content Include="Gamut.UI\Scripts\sammy-0.7.4.min.js" />
     <Content Include="Gamut.UI\Scripts\toaster.min.js" />
     <Content Include="Gamut.UI\Services.js" />
+    <Content Include="Gamut.UI\Views\accountDetails.html" />
+    <Content Include="Gamut.UI\Views\financials.html" />
     <Content Include="Gamut.UI\Views\Home\Index.html" />
     <Content Include="Gamut.UI\Views\Home\login.html" />
     <Content Include="Gamut.UI\Views\intrestRate.html" />
+    <Content Include="Gamut.UI\Views\login.html" />
     <Content Include="Gamut.UI\Views\ManageData\AddNew.html" />
     <Content Include="Gamut.UI\Views\ManageData\Delete.html" />
     <Content Include="Gamut.UI\Views\ManageData\Documents.html" />
@@ -93,8 +101,11 @@
     <Content Include="Gamut.UI\Views\ManageData\General.html" />
     <Content Include="Gamut.UI\Views\ManageData\ShowAll.html" />
     <Content Include="Gamut.UI\Views\ManageData\Soc124.html" />
+    <Content Include="Gamut.UI\Views\news.html" />
     <Content Include="Gamut.UI\Views\rating.html" />
+    <Content Include="Gamut.UI\Views\restucturing.html" />
     <Content Include="Gamut.UI\Views\security.html" />
+    <Content Include="Gamut.UI\Views\view.html" />
     <Content Include="Index.html" />
     <Content Include="web.config" />
     <None Include="web.Debug.config">
