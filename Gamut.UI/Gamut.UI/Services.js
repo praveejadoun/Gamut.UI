@@ -156,6 +156,13 @@ app.service('NewsService', function ($http) {
      };
 });
 
+//Document Service API
+app.service('DocumentService', function ($http) {
+    this.getDocumentsByDate= function (Id, startDate, endDate) {
+        return $http.get("http://gamut.somee.com/api/CustDocument/"+ Id +"?fromDate="+startDate +"&toDate="+endDate);
+     };
+});
+
 
 
  //Financials Service API
