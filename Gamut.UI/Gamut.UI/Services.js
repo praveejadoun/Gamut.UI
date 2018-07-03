@@ -163,6 +163,26 @@ app.service('DocumentService', function ($http) {
      };
 });
 
+//inspection Service API
+app.service('InspectionService', function ($http) {
+    this.getInspectionsByDate= function (Id, startDate, endDate) {
+        return $http.get("http://gamut.somee.com/api/Inspection/"+ Id +"?fromDate="+startDate +"&toDate="+endDate);
+     };
+});
+
+//Snapshot Service API
+app.service('SnapshotService', function ($http) {
+    this.getSnapshotsByDate= function (Id, startDate, endDate) {
+        return $http.get("http://gamut.somee.com/api/Snapshot/"+ Id +"?fromDate="+startDate +"&toDate="+endDate);
+     };
+});
+
+//SMA Service API
+app.service('SMAService', function ($http) {
+    this.getSMAByDate= function (Id, startDate, endDate) {
+        return $http.get("http://gamut.somee.com/api/SMACompilation/"+ Id +"?fromDate="+startDate +"&toDate="+endDate);
+     };
+});
 
 
  //Financials Service API

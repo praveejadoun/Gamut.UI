@@ -1,0 +1,195 @@
+﻿
+<style type="text/css">
+
+    table.tableizer-table {
+        font-size: 12px;
+        border: 1px solid #CCC;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .tableizer-table td {
+        padding: 4px;
+        margin: 3px;
+        border: 1px solid #CCC;
+    }
+
+    .tableizer-table th {
+        background-color: #104E8B;
+        color: #FFF;
+        font-weight: bold;
+    }
+
+      table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+    
+    td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+
+    table[show-weeks] thead tr th {
+    padding: 0px;
+    font-size: 12px;
+    font-weight: normal;
+    padding-top:4px;
+    padding-bottom: 4px;
+    text-align: center;
+    margin: 0 auto;
+    padding-right: 5px;
+    padding-left: 5px;
+}
+table[show-weeks] thead tr td button:first-child
+{
+    background: transparent !important;
+}
+
+table[show-weeks] thead tr td button:last-child
+{
+    background: transparent !important;
+    
+}
+
+.icon-chevron-left:before {
+    content: "<";
+}
+
+.icon-chevron-right:before {
+    content: ">";
+}
+
+table[show-weeks] tbody tr td {
+    padding: 2px;
+    text-align: center;
+    font-size: 12px !important;
+    font-weight: normal;
+}
+
+table[show-weeks] tbody tr td button.btn-info {
+    padding: 2px;
+    text-align: center; 
+    background-color: #5bc0de;
+    border-color: #46b8da;
+    font-size: 12px;
+    font-weight: normal;
+    border-radius: 0px;
+}
+
+table[show-weeks] tbody tr td button {
+    padding: 2px;
+    text-align: center; 
+    border-radius: 0px;
+    background-color: whitesmoke;
+    border-color: whitesmoke;
+    font-size: 12px !important;
+    font-weight: normal;
+}
+
+    .tableizer-table td {
+        padding: 4px;
+        margin: 3px;
+        border: 1px solid #CCC;
+    }
+
+    .tableizer-table th {
+        background-color: #104E8B;
+        color: #FFF;
+        font-weight: bold;
+    }
+</style>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="col-sm-4">
+                    <input
+                    id="startDate"
+                    type="text"
+                    class="form-control"
+                    ng-model="startDate"
+                    datepicker-popup="dd-MM-yyyy"
+                    close-text="Close"
+                    ng-required="true""/>
+            </div>
+            <div class="col-sm-4">
+                    <input
+                    id="endDate"
+                    type="text"
+                    class="form-control"
+                    ng-model="endDate"
+                    datepicker-popup="dd-MM-yyyy"
+                    close-text="Close"
+                    ng-required="true"/>
+            </div>
+            <div class="col-sm-4">
+                <button class="btn btn-info" ng-click="getViewDocumentbyDate()">Search</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">&nbsp;</div>
+<table>
+        <tr>
+          <th>Class</th>
+          <th>Account No.</th>
+          <th>Reason</th>
+          <th>No. of Days Same class</th>
+          <th>Next Status</th>
+          <th>Date</th>
+        </tr>
+        <tr ng-repeat= "List in sMAHistories">
+          <td>{{List.smaClass}}</td>
+          <td>{{List.accountNumber}}</td>
+          <td>{{List.reason}}</td>
+          <td>{{List.noOfDays}}</td>
+          <td>{{List.nextStatus}}</td>
+          <td>{{List.smaDate | date:'dd-MM-yyyy'}}</td>
+        </tr>
+        <tr>
+            <th style="border: #ffffff !important">
+                <br/>
+            </th>
+        </tr>
+</table>
+
+<table>
+    <tr>
+    <th>&nbsp;</th>
+    <th>JLF Convened Y/N</th>
+    <th>Date</th>
+    <th>Called By</th>
+    <th>Summary of the Meeting</th>
+    </tr>
+    <tr>
+    <td>If SMA2 Or Other Reason</td>
+    <td>{{output.jlf}}</td>
+    <td>{{output.smaDate | date:'dd-MM-yyyy'}}</td>
+    <td>{{output.calledBy}}</td>
+    <td>{{output.meeetingSummary}}</td>
+    </tr>
+    <tr>
+        <th style="border: #ffffff !important">
+            <br/>
+        </th>
+    </tr>
+</table>
+
+<table>
+    <tr>
+        <th>Branch Reply</th>
+        <th style="background-color: #dddddd;padding-left: 27%;">{{output.branchReply}}</th>
+    </tr>
+    <tr>
+        <th style="border: #ffffff !important">
+            <br/>
+        </th>
+    </tr>
+    <tr>
+        <th>Next Follow Up date</th>
+        <th style="background-color: #dddddd;padding-left: 30%;">{{output.nextFollowupDate | date:'dd-MM-yyyy'}}</th>
+    </tr>
+</table>
+

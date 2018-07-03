@@ -3,7 +3,7 @@
 <link href="Gamut.UI/css/Main.css" rel="stylesheet" />
 <link rel="stylesheet" href="Gamut.UI/css/angular-block-ui.min.css"/>
 <link rel="stylesheet" href="Gamut.UI/css/toaster.min.css"/>
- <!–– <link href="Gamut.UI/css/Login.css" rel="stylesheet" />-->
+<!-- <link href="Gamut.UI/css/Login.css" rel="stylesheet" /> -->
 
 <script src="Gamut.UI/Scripts/angular.min.js"></script>
 <script src="Gamut.UI/Scripts/angular-route.min.js"></script>
@@ -25,6 +25,9 @@
 <script src="Gamut.UI/Controllers/view.js"></script>
 <script src="Gamut.UI/Controllers/news.js"></script>
 <script src="Gamut.UI/Controllers/document.js"></script>
+<script src="Gamut.UI/Controllers/inspection.js"></script>
+<script src="Gamut.UI/Controllers/snapshot.js"></script>
+<script src="Gamut.UI/Controllers/SMA.js"></script>
 <script src="Gamut.UI/Services.js"></script>
  
 <style>
@@ -43,8 +46,6 @@ td, th {
 </style>
 
 <body data-ng-app="ApplicationModule" ng-cloak="true">
-    <!--<div class="wrapper" data-ng-show="showMenu">-->
-	<!-- Before Login-->
 	<div class="container" ng-if="$root.userId == 0">
         <div class="col-md-10 col-md-offset-1 main">
             <div class="col-md-6 left-side">
@@ -75,14 +76,11 @@ td, th {
         </div>
     </div>
 	
-	<!-- After Login-->
-    <div class="wrapper"  ng-if="$root.userId != 0">
-        <!-- Sidebar Holder -->
+	<div class="wrapper"  ng-if="$root.userId != 0">
         <nav id="sidebar">
             <div class="navbar-header navbar-right">
                 <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn navbar-right">
                     <i class="glyphicon glyphicon-align-right"></i>
-
                 </button>
             </div>
             <div class="sidebar-header">
@@ -98,12 +96,6 @@ td, th {
                         Home
                     </a>
                 </li>
-                <!--<li>
-                        <a href="add">
-                            <i class="glyphicon glyphicon-briefcase"></i>
-                            About
-                        </a>
-                    </li>-->
                 <li>
                     <a href="#/general">
                         <i class="glyphicon glyphicon-link"></i>
@@ -141,7 +133,7 @@ td, th {
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="#/inspection">
                         <i class="glyphicon glyphicon-link"></i>
                         Inspection Comments
                     </a>
@@ -159,13 +151,13 @@ td, th {
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="#/SMA">
                         <i class="glyphicon glyphicon-link"></i>
                         SMA Catagorisation
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="#/snapshot">
                         <i class="glyphicon glyphicon-link"></i>
                         Irregularities Snapshot
                     </a>
@@ -209,7 +201,6 @@ td, th {
             </ul>
         </nav>
 
-        <!-- Page Content Holder -->
         <div id="content" style="width:100%" class="navbar">
             <nav class="navbar navbar-inverse">
                 <div class="container-fluid">
@@ -307,9 +298,6 @@ td, th {
 		$("#tabledata").removeClass("tabledata");
 	});
     </script>
-	
-	
-
 </body>
 
 

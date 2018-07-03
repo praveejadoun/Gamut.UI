@@ -27,11 +27,18 @@ app.config(['$routeProvider', '$locationProvider','$httpProvider', function ($ro
     }).when('/documents',{
         templateUrl: 'Gamut.UI/Views/ManageData/Documents.html',
         controller: 'DocumentsController'
+    }).when('/inspection',{
+        templateUrl: 'Gamut.UI/Views/inspection.html',
+        controller: 'InspectionController'
+    }).when('/snapshot',{
+        templateUrl: 'Gamut.UI/Views/snapshot.html',
+        controller: 'SnapshotController'
+    }).when('/SMA',{
+        templateUrl: 'Gamut.UI/Views/SMA.html',
+        controller: 'SMAController'
     }).when('/login',{
         templateUrl: 'Gamut.UI/Views/Login.html',
         controller: 'AuthController'
-        //$location.path("Home/login")
-        //redirectTo: 'Home/Login'
     }).when('/intrestRate',{
         templateUrl: 'Gamut.UI/Views/intrestRate.html',
         controller: 'IntrestRateController'
