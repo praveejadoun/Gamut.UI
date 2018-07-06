@@ -31,8 +31,9 @@
         getSoc124();
     }
 
-    $scope.saveData = function(cust_id, sourceSystemId, approvalDate, via, approvalFor, isCompiled, followUpDate, compiledDate){
+    $scope.saveData = function(id,cust_id, sourceSystemId, approvalDate, via, approvalFor, isCompiled, followUpDate, compiledDate){
         var data = {
+            "id":id,
             "cust_id": cust_id,
             "sourceSystemId": sourceSystemId,
             "approvalDate": $filter('date')(approvalDate, "dd-MM-yyyy"),
@@ -44,7 +45,7 @@
           }
           
         blockUI.start('Please wait...');
-        var newsResponse = soc124Service.postSoc124Data(cust_id, data);
+        var newsResponse = soc124Service.postSoc124Data(id, data);
         newsResponse.then(function (res) {
             toaster.pop('success', "success", "Saved Successfully");
             blockUI.stop();

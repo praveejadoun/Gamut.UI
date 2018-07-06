@@ -120,9 +120,9 @@ table[show-weeks] tbody tr td button {
           <td>{{List.asperID}}</td>
           <td>{{List.dated | date:'dd-MM-yyyy'}}</td>
           <td>{{List.schemeType}}</td>
-          <td><input id="startDate" type="text" class="form-control" ng-model="List.followUpDate" datepicker-popup="dd-MM-yyyy" close-text="Close" ng-required="true""/></td>
-          <td><input id="endDate" type="text" class="form-control" ng-model="List.compiledDate" datepicker-popup="dd-MM-yyyy" close-text="Close" ng-required="true""/></td>
-          <td><button type="button" class="btn btn-success" ng-click="saveData(List.cust_Id,List.accountNo,List.accountType,List.roi,List.asperID,List.dated,List.schemeType,List.followUpDate,List.compiledDate,List.source)">Save</button></td>
+          <td><input id="startDate" type="text" class="form-control" ng-model="List.followUpDate" datepicker-popup="dd-MM-yyyy" close-text="Close" ng-required="true"/></td>
+          <td><input id="endDate" type="text" class="form-control" ng-model="List.compiledDate" datepicker-popup="dd-MM-yyyy" close-text="Close" ng-required="true"/></td>
+          <td><button type="button" class="btn btn-success" ng-click="saveData(List.id,List.cust_Id,List.accountNo,List.accountType,List.roi,List.asperID,List.dated,List.schemeType,List.followUpDate,List.compiledDate,List.source)">Save</button></td>
         </tr>
         <tr>
             <th style="border: #ffffff !important">

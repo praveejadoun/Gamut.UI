@@ -131,24 +131,50 @@ table[show-weeks] tbody tr td button {
     </div>
 </div>
 <div class="container">&nbsp;</div>
-<table ng-repeat= "(key, value) in group | groupBy: 'periodicity'" ng-if="group.length  >0">
-        <tr>
-          <th>Particulars</th>
-          <th>Data</th>
-          <th>Data</th>
-          <th>Data</th>
-          <th>Data</th>
-        </tr>
-        <tr ng-repeat= "List in value">
-          <td>{{List.periodicity}}</td>
-          <td>{{List.documentType}}</td>
-          <td>{{List.submitted}}</td>
-          <td>{{List.submittedDate | date:'dd-MM-yyyy'}}</td>
-          <td>{{List.deviationNoted}}</td>
-        </tr>
-        <tr>
-            <th style="border: #ffffff !important">
-                <br/>
-            </th>
-        </tr>
+<table ng-repeat="(key, value) in group | groupBy: 'snapshotType'" ng-if="group.length  >0">
+    <tr>
+        <th>Particulars</th>
+        <th>Description</th>
+        <th>Value</th>
+        <th>Description</th>
+        <th>Value</th>
+        <th>Description</th>
+        <th>Value</th>
+        <th>Description</th>
+        <th>Value</th>
+        <th>Description</th>
+        <th>Value</th>
+    </tr>
+
+    <!--public string snapshotType { get; set; }
+    public string snapshotDescription { get; set; }
+    public string data1Description { get; set; }
+    public string data1Value { get; set; }
+    public string data2Description { get; set; }
+    public string data2Value { get; set; }
+    public string data3Description { get; set; }
+    public string data3Value { get; set; }
+    public string data4Description { get; set; }
+    public string data4Value { get; set; }
+    public string data5Description { get; set; }
+    public string data5Value { get; set; }-->
+    <tr ng-repeat="List in value">
+        <td>{{List.snapshotDescription}}</td>
+        <td>{{List.data1Description}}</td>
+        <td>{{List.data1Value}}</td>
+        <td>{{List.data2Description}}</td>
+        <td>{{List.data2Value}}</td>
+        <td>{{List.data3Description}}</td>
+        <td>{{List.data3Value}}</td>
+        <td>{{List.data4Description}}</td>
+        <td>{{List.data4Value}}</td>
+        <td>{{List.data5Description}}</td>
+        <td>{{List.data5Value}}</td>
+
+    </tr>
+    <tr>
+        <th style="border: #ffffff !important">
+            <br />
+        </th>
+    </tr>
 </table>

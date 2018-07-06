@@ -52,7 +52,6 @@
     <Content Include="Gamut.UI\Controllers\document.js" />
     <Content Include="Gamut.UI\Controllers\financials.js" />
     <Content Include="Gamut.UI\Controllers\GeneralController.js" />
-    <Content Include="Gamut.UI\Controllers\GeneralController2.js" />
     <Content Include="Gamut.UI\Controllers\inspection.js" />
     <Content Include="Gamut.UI\Controllers\intrestRate.js" />
     <Content Include="Gamut.UI\Controllers\news.js" />

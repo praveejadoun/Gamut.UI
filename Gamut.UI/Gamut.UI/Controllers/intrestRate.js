@@ -25,22 +25,23 @@ app.controller('IntrestRateController',function($scope,$location,toaster,$filter
         });
 	}
 
-	$scope.saveData = function(cust_id, accountNo, accountType, roi, asperID, dated, schemeType, followUpDate, compiledDate, source){
+	$scope.saveData = function(id,cust_id, accountNo, accountType, roi, asperID, dated, schemeType, followUpDate, compiledDate, source){
         var data = {
-			"cust_Id": cust_id,
+            "Id":id,
+            "cust_Id": cust_id,
 			"accountNo": accountNo,
 			"accountType": accountType,
 			"roi": roi,
 			"asperID": asperID,
 			"dated": $filter('date')(dated, "dd-MM-yyyy"),
 			"schemeType": schemeType,
-			"followUpDate": $filter('date')(followUpDate, "dd-MM-yyyy"),
-			"compiledDate": $filter('date')(compiledDate, "dd-MM-yyyy"),
+            "followUpDate": followUpDate,//$filter('date')(followUpDate, "dd-MM-yyyy"),
+            "compiledDate": compiledDate,//$filter('date')(compiledDate, "dd-MM-yyyy"),
 			"source": source
 		  }
           
         blockUI.start('Please wait...');
-        var newsResponse = intrestRateService.putintrestRate(cust_id, data);
+        var newsResponse = intrestRateService.putintrestRate(id, data);
         newsResponse.then(function (res) {
             toaster.pop('success', "success", "Saved Successfully");
             blockUI.stop();
