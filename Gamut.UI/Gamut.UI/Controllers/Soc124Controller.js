@@ -36,12 +36,12 @@
             "id":id,
             "cust_id": cust_id,
             "sourceSystemId": sourceSystemId,
-            "approvalDate": $filter('date')(approvalDate, "dd-MM-yyyy"),
+            "approvalDate": approvalDate,//$filter('date')(approvalDate, "dd-MM-yyyy"),
             "via": via,
             "approvalFor": approvalFor,
             "isCompiled": isCompiled,
-            "followUpDate": $filter('date')(followUpDate, "dd-MM-yyyy"),
-            "compiledDate": $filter('date')(compiledDate, "dd-MM-yyyy")
+            "followUpDate": followUpDate,//$filter('date')(followUpDate, "dd-MM-yyyy"),
+            "compiledDate": compiledDate//$filter('date')(compiledDate, "dd-MM-yyyy")
           }
           
         blockUI.start('Please wait...');

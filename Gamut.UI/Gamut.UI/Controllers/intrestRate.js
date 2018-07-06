@@ -33,7 +33,7 @@ app.controller('IntrestRateController',function($scope,$location,toaster,$filter
 			"accountType": accountType,
 			"roi": roi,
 			"asperID": asperID,
-			"dated": $filter('date')(dated, "dd-MM-yyyy"),
+			"dated": dated,//$filter('date')(dated, "dd-MM-yyyy"),
 			"schemeType": schemeType,
             "followUpDate": followUpDate,//$filter('date')(followUpDate, "dd-MM-yyyy"),
             "compiledDate": compiledDate,//$filter('date')(compiledDate, "dd-MM-yyyy"),

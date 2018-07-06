@@ -1,4 +1,5 @@
-﻿app.controller('ReportsController', function ($scope, $location, $filter, $window, $rootScope,$filter, userService,GeneralService,ReportService,ShareData,blockUI) {
+﻿/// <reference path="inspection.js" />
+app.controller('ReportsController', function ($scope, $location, $filter, $window, $rootScope,$filter, userService,GeneralService,ReportService,ShareData,blockUI) {
     $scope.userId = localStorage.getItem("userName");
     if($scope.userId == null){
         $location.path('/');

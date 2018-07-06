@@ -36,6 +36,11 @@
         $scope.startDate = selectedYear.startDate;
         $scope.endDate = selectedYear.endDate;
     }
+    $scope.ViewReports = function () {
+        alert('test');
+            
+        getInspectionDetails();
+    }
 
     $scope.saveData = function(id, cust_Id,auditType, code, comments, inspectionStatus, followUpDate, compiledDate, lastUpdatedBy){
         var data = {
@@ -45,8 +50,8 @@
             "code": code,
             "comments": comments,
             "inspectionStatus": inspectionStatus,
-            "followUpDate": $filter('date')(followUpDate, "dd-MM-yyyy"),
-            "compiledDate": $filter('date')(compiledDate, "dd-MM-yyyy"),
+            "followUpDate": followUpDate,//$filter('date')(followUpDate, "dd-MM-yyyy"),
+            "compiledDate": compiledDate,//$filter('date')(compiledDate, "dd-MM-yyyy"),
             "lastUpdatedBy": lastUpdatedBy,
             "lastUpdatedOn": $filter('date')(new Date(), "dd-MM-yyyy")
           }
