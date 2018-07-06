@@ -100,66 +100,56 @@ table[show-weeks] tbody tr td button {
         font-weight: bold;
     }
 </style>
-{{test}}
-<table class="table tab-content table-bordered">
-    <tbody>
-        <tr>
-            <td>
-                <label for="finSelect"> Financial Year: </label>
-                <select name="finSelect" id="mySelect"
-                        data-ng-options="option.fyName for option in financialYear track by option.$id"
-                        data-ng-model="financialYear.selectedOption" data-ng-change="selectFyName(financialYear.selectedOption)">
-                        <option  data-ng-selected="true" value="">--Select--</option>
-                </select>
 
-            </td>
-        </tr>
-    </tbody>
-</table>
 <div class="container">
     <div class="row">
         <div class="col-sm-12">
-            <div class="col-sm-4">
-                    <input
-                    id="startDate"
-                    type="text"
-                    class="form-control"
-                    ng-model="startDate"
-                    datepicker-popup="dd-MM-yyyy"
-                    close-text="Close"
-                    ng-required="true""/>
+            <div class="col-sm-1">
+                <label for="finSelect"> Financial Year: </label>
             </div>
-            <div class="col-sm-4">
-                    <input
-                    id="endDate"
-                    type="text"
-                    class="form-control"
-                    ng-model="endDate"
-                    datepicker-popup="dd-MM-yyyy"
-                    close-text="Close"
-                    ng-required="true"/>
+            <div class="col-sm-3">
+                <select name="finSelect" id="mySelect"  class="form-control"
+                        data-ng-options="option.fyName for option in financialYear track by option.$id"
+                        data-ng-model="financialYear.selectedOption" data-ng-change="selectFyName(financialYear.selectedOption)">
+                    <option  data-ng-selected="true" value="">--Select--</option>
+                </select>
             </div>
-            <div class="col-sm-4">
-                <button class="btn btn-info" ng-click="getViewDocumentbyDate()">Search</button>
+            <div class="col-sm-3">
+                <input id="startDate" type="text" class="form-control" ng-model="startDate" datepicker-popup="dd-MM-yyyy" close-text="Close" disabled="disabled" ng-required="true""/>
+            </div>
+            <div class="col-sm-3">
+                <input id="endDate" type="text" class="form-control" ng-model="endDate" datepicker-popup="dd-MM-yyyy" close-text="Close" disabled="disabled" ng-required="true"/>
+            </div>
+            <div class="col-sm-2">
+                 <button class="btn btn-info" ng-click="getViewDocumentbyDate()">Search</button>
             </div>
         </div>
     </div>
 </div>
 <div class="container">&nbsp;</div>
-<table ng-repeat= "(key, value) in group | groupBy: 'periodicity'" ng-if="group.length  >0">
+<table >
         <tr>
-          <th>Periodicity</th>
-          <th>Type</th>
-          <th>Submitted Y/N or NA</th>
-          <th>Date</th>
-          <th>Deviation noted</th>
+          <th>Audit Type</th>
+          <th>Code</th>
+          <th>Comments</th>
+          <th>Status</th>
+          <th>Followup Date</th>
+          <th>Save</th>
         </tr>
-        <tr ng-repeat= "List in value">
-          <td>{{List.periodicity}}</td>
-          <td>{{List.documentType}}</td>
-          <td>{{List.submitted}}</td>
-          <td>{{List.submittedDate | date:'dd-MM-yyyy'}}</td>
-          <td>{{List.deviationNoted}}</td>
+        <tr ng-repeat= "List in group">
+          <td>{{List.auditType}}</td>
+          <td>{{List.code}}</td>
+          <td>{{List.comments}}</td>
+          <td>
+            <select data-ng-model="List.inspectionStatus" class="form-control">
+                <option value="">--Select--</option>
+                <option value="Rectified">Rectified</option>
+                <option value="UnRectified">UnRectified</option>
+                <option value="Isolated">Isolated</option>
+                <option value="Deleted">Deleted</option>
+            </select>
+          <td><input id="startDate" type="text" class="form-control" ng-model="List.followUpDate" datepicker-popup="dd-MM-yyyy" close-text="Close" ng-required="true""/></td>
+          <td><button type="button" class="btn btn-success" ng-click="saveData(List.cust_Id,List.auditType,List.code,List.comments,List.inspectionStatus,List.followUpDate,List.compiledDate,List.lastUpdatedBy,List.lastUpdatedOn)">Save</button></td>
         </tr>
         <tr>
             <th style="border: #ffffff !important">

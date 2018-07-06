@@ -36,6 +36,12 @@ app.config(['$routeProvider', '$locationProvider','$httpProvider', function ($ro
     }).when('/SMA',{
         templateUrl: 'Gamut.UI/Views/SMA.html',
         controller: 'SMAController'
+    }).when('/reports',{
+        templateUrl: 'Gamut.UI/Views/reports.html',
+        controller: 'ReportsController'
+    }).when('/logs',{
+        templateUrl: 'Gamut.UI/Views/activeLogs.html',
+        controller: 'logsController'
     }).when('/login',{
         templateUrl: 'Gamut.UI/Views/Login.html',
         controller: 'AuthController'
@@ -74,6 +80,7 @@ app.config(['$routeProvider', '$locationProvider','$httpProvider', function ($ro
     
 }]).run(function($rootScope,customerService,blockUI,toaster,$route,$location){
   
+
 //     if(localStorage.getItem("userName") == 0){
 //       $rootScope.userId = localStorage.setItem("userId", "");
 //    }
@@ -109,18 +116,19 @@ app.config(['$routeProvider', '$locationProvider','$httpProvider', function ($ro
         location.reload(true);
     }
 
-    // function getcustomers() {
-    //         blockUI.start('Please wait...');
-    //         var customerList = customerService.getCustomerList();
-    //         customerList.then(function (response) {
-    //             $rootScope.customers = response.data;
-    //             blockUI.stop();
-    //         },function (errorresponse) {
-    //             blockUI.stop();
-    //             $rootScope.error = 'failure loading Customer Data', errorresponse;
-    //         });
-    //     }
-    //     getcustomers();
+   
+    function getcustomers() {
+            blockUI.start('Please wait...');
+            var customerList = customerService.getCustomerList();
+            customerList.then(function (response) {
+                $rootScope.customers = response.data;
+                blockUI.stop();
+            },function (errorresponse) {
+                blockUI.stop();
+                $rootScope.error = 'failure loading Customer Data', errorresponse;
+            });
+        }
+        getcustomers();
 
         $rootScope.onSelect = function ($item, $model, $label) {
             $rootScope.$item = $item;
@@ -147,3 +155,4 @@ app.config(['$routeProvider', '$locationProvider','$httpProvider', function ($ro
             });
         }
 });
+

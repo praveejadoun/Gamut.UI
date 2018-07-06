@@ -1,4 +1,4 @@
-﻿app.controller('DocumentsController', function ($scope, $location, $filter, $window, $rootScope,$filter, userService,GeneralService,DocumentService,ShareData,blockUI) {
+﻿app.controller('DocumentsController', function ($scope, $location,toaster, $filter, $window, $rootScope,$filter, userService,GeneralService,DocumentService,ShareData,blockUI) {
     $scope.userId = localStorage.getItem("userName");
     if($scope.userId == null){
         $location.path('/');
@@ -33,6 +33,35 @@
     }
 
     $scope.selectFyName = function(selectedYear){
-        console.log(selectedYear);
+        $scope.startDate = selectedYear.startDate;
+        $scope.endDate = selectedYear.endDate;
+    }
+
+    $scope.saveData = function(cust_id, periodicity, documentType, submitted, submittedDate, deviationNoted, compiledDate, isChecked, monitorId, lastUpdatedBy, lastUpdatedOn){
+        var data = {
+            "cust_id": cust_id,
+            "periodicity": periodicity,
+            "documentType": documentType,
+            "submitted": submitted,
+            "submittedDate": $filter('date')(submittedDate, "dd-MM-yyyy"),
+            "deviationNoted": deviationNoted,
+            "compiledDate": $filter('date')(compiledDate, "dd-MM-yyyy"),
+            "isChecked": isChecked,
+            "monitorId": monitorId,
+            "lastUpdatedBy": lastUpdatedBy,
+            "lastUpdatedOn": $filter('date')(new Date(), "dd-MM-yyyy")
+          }
+          
+        blockUI.start('Please wait...');
+        var newsResponse = DocumentService.putDocuments(cust_id, data);
+        newsResponse.then(function (res) {
+            toaster.pop('success', "success", "Saved Successfully");
+            blockUI.stop();
+        },
+        function (error) {
+            toaster.pop('error', "error", "Error while saving");
+            $scope.error = 'Failure while saving data', error;
+            blockUI.stop();
+        });
     }
 });

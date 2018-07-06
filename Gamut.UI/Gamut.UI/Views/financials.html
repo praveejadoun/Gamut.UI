@@ -1,1 +1,45 @@
-<h2>Financials</h2>
+<div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="col-sm-1">
+                    <label for="finSelect"> Financial Year: </label>
+                </div>
+                <div class="col-sm-2">
+                    <select name="finSelect" class="form-control" id="mySelect"
+                        data-ng-options="option.typeName for option in financialsDataList track by option.typeID"
+                        data-ng-model="financialYear.selectedOption">
+                        <option  data-ng-selected="true" value="">--Select--</option>
+                    </select>
+                </div>
+                <div class="col-sm-2">
+                    <button class="btn btn-info" ng-click="getFinDatabyName(financialYear.selectedOption)">Search</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">&nbsp;</div>
+    <table ng-if="financialTypeDataList.length >0">
+            <tr>
+              <th>Finance Header</th>
+              <th ng-repeat="year in Quater">
+                  {{year}}
+              </th>
+            </tr>
+            <tr ng-repeat= "List in financialTypeDataList">
+              <td>{{List.financeHeader}}</td>
+              <td>{{List.fR1}}</td>
+              <td>{{List.fR2}}</td>
+              <td>{{List.fR3}}</td>
+              <td>{{List.fR4}}</td>
+              <td>{{List.fR5}}</td>
+            </tr>
+            <tr>
+                <th style="border: #ffffff !important">
+                    <br/>
+                </th>
+            </tr>
+    </table>
+
+    <div class="container" ng-if="financialTypeDataList.length == null">
+        <h3 style="padding-left: 32%; padding-top: 3%;">Please Select Financial Year</h3>
+    </div>

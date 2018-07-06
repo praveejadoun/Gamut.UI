@@ -119,17 +119,25 @@ table[show-weeks] tbody tr td button {
                             <th>Complied</th>
                             <th>Follow up date</th>
                             <th>Complied Date</th>
+                            <th>Save</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr ng-repeat="List in soc124DataList">
                             <td>{{List.entData.sourceSystemId}}</td>
-                            <td>{{List.entData.approvalDate | date:'dd-MM-yyyy'}}</td>
+                            <td style="font-size: 94%;">{{List.entData.approvalDate | date:'dd-MM-yyyy'}}</td>
                             <td>{{List.entData.via}}</td>
-                            <td>{{List.entData.approvalFor}}</td>
-                            <td>{{List.entData.isCompiled}}</td>
-                            <td> {{List.entData.followUpDate | date:'dd-MM-yyyy'}}</td>
-                            <td>{{List.entData.compiledDate | date:'dd-MM-yyyy'}}</td>
+                            <td><input type="text" class="form-control" name="approvalFor" ng-model="List.entData.approvalFor" ></td>
+                            <td>
+                                <select data-ng-model="List.entData.isCompiled" class="form-control">
+                                        <option value="">--Select--</option>
+                                        <option value="yes">Yes</option>
+                                        <option value="no">No</option>
+                                </select>
+                            </td>
+                            <td><input id="startDate" type="text" class="form-control" ng-model="List.entData.followUpDate" datepicker-popup="dd-MM-yyyy" close-text="Close" ng-required="true""/></td>
+                            <td><input id="startDate" type="text" class="form-control" ng-model="List.entData.compiledDate" datepicker-popup="dd-MM-yyyy" close-text="Close" ng-required="true""/></td>
+                            <td><button type="button" class="btn btn-success" ng-click="saveData(List.entData.cust_id,List.entData.sourceSystemId,List.entData.approvalDate,List.entData.via,List.entData.approvalFor,List.entData.isCompiled,List.entData.followUpDate,List.entData.compiledDate )">Save</button></td>
                         </tr>
                     </tbody>
                 </table>

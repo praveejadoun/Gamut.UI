@@ -101,20 +101,9 @@ table[show-weeks] tbody tr td button {
     }
 </style>
 
-
 <div class="container">
     <div class="row">
         <div class="col-sm-12">
-            <div class="col-sm-1">
-                <label for="finSelect"> Financial Year: </label>
-            </div>
-            <div class="col-sm-2">
-                <select name="finSelect" class="form-control" id="mySelect"
-                    data-ng-options="option.fyName for option in financialYear track by option.$id"
-                    data-ng-model="financialYear.selectedOption" data-ng-change="selectFyName(financialYear.selectedOption)">
-                    <option  data-ng-selected="true" value="">--Select--</option>
-                </select>
-            </div>
             <div class="col-sm-3">
                     <input
                     id="startDate"
@@ -123,8 +112,7 @@ table[show-weeks] tbody tr td button {
                     ng-model="startDate"
                     datepicker-popup="dd-MM-yyyy"
                     close-text="Close"
-                    ng-required="true"
-                    disabled="disabled"/>
+                    ng-required="true""/>
             </div>
             <div class="col-sm-3">
                     <input
@@ -134,43 +122,43 @@ table[show-weeks] tbody tr td button {
                     ng-model="endDate"
                     datepicker-popup="dd-MM-yyyy"
                     close-text="Close"
-                    ng-required="true"
-                    disabled="disabled"/>
+                    ng-required="true"/>
             </div>
-            <div class="col-sm-2">
-                <button class="btn btn-info" ng-click="getViewDocumentbyDate()">Search</button>
+            <div class="col-sm-3">
+                <select data-ng-model="selectedLogType" class="form-control">
+                    <option value="">--Select--</option>
+                    <option data-ng-selected="true" value="Communication">Communication</option>
+                    <option value="Ist Reminder">Ist Reminder</option>
+                    <option value="IInd Reminder">IInd Reminder</option>
+                    <option value="Further Followup">Further Followup</option>
+                    <option value="Further Followup">Rectified</option>
+                </select>
+            </div>
+            <div class="col-sm-3">
+                <button class="btn btn-info" ng-click="getActiveLogs()">Search</button>
             </div>
         </div>
     </div>
 </div>
 <div class="container">&nbsp;</div>
-<table ng-repeat= "(key, value) in group | groupBy: 'periodicity'" ng-if="group.length  >0">
+<table>
         <tr>
-          <th>Periodicity</th>
+          <th>Date</th>
+          <th>Irregularity/Communication/Information/Date</th>
           <th>Type</th>
-          <th ng-if="key == 'General'">isChecked</th>
-          <th ng-if="key == 'General'">monitorId</th>
-          <th ng-if="key != 'General'">Submitted Y/N or NA</th>
-          <th ng-if="key != 'General'">Date</th>
-          <th ng-if="key != 'General'">Deviation noted</th>
-          <th>Save</th>
+          <th>Steps Taken / Comments</th>
+          <th>Attachment if any</th>
+          <th>Next Followup date</th>
+          <th>Ratification Date</th>
         </tr>
-        <tr ng-repeat= "List in value">
-          <td>{{List.periodicity}}</td>
-          <td>{{List.documentType}}</td>
-          <td ng-if="key != 'General'">
-            <select data-ng-model="List.submitted" class="form-control">
-                    <option value="">--Select--</option>
-                    <option value="Yes">Yes</option>
-                    <option value="No">No</option>
-                    <option value="NA">NA</option>
-            </select>
-          </td>
-          <td ng-if="key == 'General'"><input type="checkbox" ng-model="List.isChecked" ng-checked="List.isChecked"></td>
-          <td ng-if="key == 'General'"><input type="text" class="form-control" maxlength="200" ng-model="List.monitorId" ></td>
-          <td ng-if="key != 'General'"><input id="startDate" type="text" class="form-control" ng-model="List.submittedDate" datepicker-popup="dd-MM-yyyy" close-text="Close" ng-required="true"/></td>
-          <td ng-if="key != 'General'"><input type="text" class="form-control" name="approvalFor" maxlength="200" ng-model="List.deviationNoted" ></td>
-          <td><button type="button" class="btn btn-success" ng-click="saveData(List.cust_id,List.periodicity,List.documentType,List.submitted,List.submittedDate,List.deviationNoted,List.compiledDate,List.isChecked,List.monitorId,List.lastUpdatedBy,List.lastUpdatedOn)">Save</button></td>
+        <tr ng-repeat= "List in activeLog">
+          <td>{{List.smaClass}}</td>
+          <td>{{List.accountNumber}}</td>
+          <td>{{List.reason}}</td>
+          <td>{{List.noOfDays}}</td>
+          <td>{{List.nextStatus}}</td>
+          <td>{{List.smaDate | date:'dd-MM-yyyy'}}</td>
+          <td>{{List.smaDate | date:'dd-MM-yyyy'}}</td>
         </tr>
         <tr>
             <th style="border: #ffffff !important">
@@ -178,3 +166,5 @@ table[show-weeks] tbody tr td button {
             </th>
         </tr>
 </table>
+
+

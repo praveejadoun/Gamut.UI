@@ -14,7 +14,7 @@ app.service("GeneralService", function ($http) {
     this.getGeneral = function (Id) {
         return $http.get(this.URLprefix + "/api/GeneralAPI/" + Id);
     };
-45
+
     //Function to create new General
     this.post = function (General) {
         var request = $http({
@@ -74,6 +74,9 @@ app.service('intrestRateService', function ($http) {
    this.getintrestRate= function (Id) {
     return $http.get("http://gamut.somee.com/api/InterestCust/"+Id);
     };
+    this.putintrestRate= function (Id, data) {
+        return $http.put("http://gamut.somee.com/api/Interest/"+Id, data);
+    };
 });
 
 //Customer Service API
@@ -111,6 +114,10 @@ app.service('soc124Service', function ($http) {
      this.getSoc124ByDate= function (Id, startDate, endDate) {
         return $http.get("http://gamut.somee.com/api/Soc124ByDate/"+ Id +"/"+ startDate + "/"+ endDate);
         };
+
+     this.postSoc124Data= function (Id, data) {
+        return $http.put("http://gamut.somee.com/api/Soc124API/"+ Id , data);
+        };
  });
 
  //Financials Service API
@@ -120,7 +127,7 @@ app.service('FinancialService', function ($http) {
     };
 
     this.getFinancialsByTrendz= function (Id,trendz) {
-        return $http.get("http://gamut.somee.com/api/FinancialResultAPI/"+ Id +"?trendz=" + trendz);
+        return $http.get("http://gamut.somee.com/api/FinancialResultAPI/"+ Id +"?resTypeId=" + trendz);
     };
 });
 
@@ -161,12 +168,18 @@ app.service('DocumentService', function ($http) {
     this.getDocumentsByDate= function (Id, startDate, endDate) {
         return $http.get("http://gamut.somee.com/api/CustDocument/"+ Id +"?fromDate="+startDate +"&toDate="+endDate);
      };
+     this.putDocuments= function (Id, data) {
+        return $http.put("http://gamut.somee.com/api/CustDocument/"+ Id, data);
+     };
 });
 
 //inspection Service API
 app.service('InspectionService', function ($http) {
     this.getInspectionsByDate= function (Id, startDate, endDate) {
         return $http.get("http://gamut.somee.com/api/Inspection/"+ Id +"?fromDate="+startDate +"&toDate="+endDate);
+     };
+     this.putInspections= function (Id, data) {
+        return $http.put("http://gamut.somee.com/api/Inspection/"+ Id, data);
      };
 });
 
@@ -181,6 +194,20 @@ app.service('SnapshotService', function ($http) {
 app.service('SMAService', function ($http) {
     this.getSMAByDate= function (Id, startDate, endDate) {
         return $http.get("http://gamut.somee.com/api/SMACompilation/"+ Id +"?fromDate="+startDate +"&toDate="+endDate);
+     };
+});
+
+//Reports Service API
+app.service('ReportService', function ($http) {
+    this.getReports= function (Id, status, relatedTo, startDate, endDate) {
+        return $http.get("http://gamut.somee.com/api/ReportData/"+ Id +"?status="+status+"&relatedTo="+relatedTo+"&fromDate="+startDate +"&toDate="+endDate);
+     };
+});
+
+//activeLogs Service API
+app.service('LogsService', function ($http) {
+    this.getactiveLogs= function (Id, logType, startDate, endDate) {
+        return $http.get("http://gamut.somee.com/api/ActivityLog/"+Id+"?logType="+logType+"&fromDate="+startDate+"&toDate="+endDate);
      };
 });
 

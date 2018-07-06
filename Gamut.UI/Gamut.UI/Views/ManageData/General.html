@@ -337,7 +337,7 @@
                     </table>
                     <br />
                     <table>
-                    <tr ng-repeat="x in General.gurantors">
+                    <tr ng-repeat="x in General.gurantors" ng-if="General.gurantors.length >0">
                         <td>
                             {{x.entData.gurType}}
                         </td>
@@ -349,7 +349,11 @@
                             {{x.entData.cust_Id}}
                         </td>
                     </tr>
+                    <tr ng-if="General.gurantors.length == 0">
+                        <td style="padding-left: 24%;">Gurantors are Not Applicable</td>
+                    </tr>
                 </table>
+                
 
                 </tbody>
             </table>

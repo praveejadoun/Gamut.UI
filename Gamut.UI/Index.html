@@ -28,6 +28,8 @@
 <script src="Gamut.UI/Controllers/inspection.js"></script>
 <script src="Gamut.UI/Controllers/snapshot.js"></script>
 <script src="Gamut.UI/Controllers/SMA.js"></script>
+<script src="Gamut.UI/Controllers/reports.js"></script>
+<script src="Gamut.UI/Controllers/activeLogs.js"></script>
 <script src="Gamut.UI/Services.js"></script>
  
 <style>
@@ -88,9 +90,9 @@ td, th {
                 <strong>GT</strong>
             </div>
 
-            <ul class="list-unstyled components">
+            <ul class="list-unstyled components" id="menu">
 
-                <li>
+                <li class="active">
                     <a href="#/index">
                         <i class="glyphicon glyphicon-home"></i>
                         Home
@@ -169,7 +171,7 @@ td, th {
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="#/logs">
                         <i class="glyphicon glyphicon-link"></i>
                         Activity Logs
                     </a>
@@ -177,7 +179,7 @@ td, th {
 				<li>
                     <a href="#/view">
                         <i class="glyphicon glyphicon-link"></i>
-                       View
+                       Department View
                     </a>
                 </li>
                 <li>
@@ -187,7 +189,7 @@ td, th {
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="#/reports">
                         <i class="glyphicon glyphicon-link"></i>
                         Download Reports
                     </a>
@@ -284,6 +286,15 @@ td, th {
     <!-- Bootstrap Js CDN -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+    
+	<script type="text/javascript">
+	        $(document).ready(function () {
+$('#menu li').click(function() {
+    $('#menu li.active').removeClass('active');
+    $(this).closest('li').addClass('active');
+});
+});
+	</script>
     <script type="text/javascript">
         $(document).ready(function () {
             $('#sidebarCollapse').on('click', function () {
@@ -297,6 +308,14 @@ td, th {
 			$(".showall").click(function(){
 		$("#tabledata").removeClass("tabledata");
 	});
+	
+$('#menu li').click(function() {
+if($(this).hasClass('active')) {
+    $(this).removeClass('active');
+} else {
+    $(this).addClass('active');
+}
+});
     </script>
 </body>
 

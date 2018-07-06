@@ -1,16 +1,102 @@
 <style>
-        table {
-            font-family: arial, sans-serif;
-            border-collapse: collapse;
-            width: 100%;
-        }
-        
-        td, th {
-            border: 1px solid #dddddd;
-            text-align: left;
-            padding: 8px;
-        }
-        
+       table.tableizer-table {
+        font-size: 12px;
+        border: 1px solid #CCC;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .tableizer-table td {
+        padding: 4px;
+        margin: 3px;
+        border: 1px solid #CCC;
+    }
+
+    .tableizer-table th {
+        background-color: #104E8B;
+        color: #FFF;
+        font-weight: bold;
+    }
+
+      table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+    
+    td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+
+    table[show-weeks] thead tr th {
+    padding: 0px;
+    font-size: 12px;
+    font-weight: normal;
+    padding-top:4px;
+    padding-bottom: 4px;
+    text-align: center;
+    margin: 0 auto;
+    padding-right: 5px;
+    padding-left: 5px;
+}
+table[show-weeks] thead tr td button:first-child
+{
+    background: transparent !important;
+}
+
+table[show-weeks] thead tr td button:last-child
+{
+    background: transparent !important;
+    
+}
+
+.icon-chevron-left:before {
+    content: "<";
+}
+
+.icon-chevron-right:before {
+    content: ">";
+}
+
+table[show-weeks] tbody tr td {
+    padding: 2px;
+    text-align: center;
+    font-size: 12px !important;
+    font-weight: normal;
+}
+
+table[show-weeks] tbody tr td button.btn-info {
+    padding: 2px;
+    text-align: center; 
+    background-color: #5bc0de;
+    border-color: #46b8da;
+    font-size: 12px;
+    font-weight: normal;
+    border-radius: 0px;
+}
+
+table[show-weeks] tbody tr td button {
+    padding: 2px;
+    text-align: center; 
+    border-radius: 0px;
+    background-color: whitesmoke;
+    border-color: whitesmoke;
+    font-size: 12px !important;
+    font-weight: normal;
+}
+
+    .tableizer-table td {
+        padding: 4px;
+        margin: 3px;
+        border: 1px solid #CCC;
+    }
+
+    .tableizer-table th {
+        background-color: #104E8B;
+        color: #FFF;
+        font-weight: bold;
+    }
        
         </style>
 
@@ -26,15 +112,17 @@
           <th>Scheme Type</th>
           <th>If 'Not Complied' Followup Date</th>
           <th>Complied Date</th>
+          <th>Save</th>
         </tr>
         <tr ng-repeat= "List in value">
           <td>{{List.accountNo}}</td>
           <td>{{List.roi}}</td>
           <td>{{List.asperID}}</td>
           <td>{{List.dated | date:'dd-MM-yyyy'}}</td>
-          <td>{{List.schemeType == 'NULL' ?'schemeType' : "NULL"}}</td>
-          <td>{{List.followUpDate | date:'dd-MM-yyyy'}}</td>
-          <td>{{List.compiledDate | date:'dd-MM-yyyy'}}</td>
+          <td>{{List.schemeType}}</td>
+          <td><input id="startDate" type="text" class="form-control" ng-model="List.followUpDate" datepicker-popup="dd-MM-yyyy" close-text="Close" ng-required="true""/></td>
+          <td><input id="endDate" type="text" class="form-control" ng-model="List.compiledDate" datepicker-popup="dd-MM-yyyy" close-text="Close" ng-required="true""/></td>
+          <td><button type="button" class="btn btn-success" ng-click="saveData(List.cust_Id,List.accountNo,List.accountType,List.roi,List.asperID,List.dated,List.schemeType,List.followUpDate,List.compiledDate,List.source)">Save</button></td>
         </tr>
         <tr>
             <th style="border: #ffffff !important">

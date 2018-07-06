@@ -1,0 +1,155 @@
+﻿
+<style type="text/css">
+
+    table.tableizer-table {
+        font-size: 12px;
+        border: 1px solid #CCC;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .tableizer-table td {
+        padding: 4px;
+        margin: 3px;
+        border: 1px solid #CCC;
+    }
+
+    .tableizer-table th {
+        background-color: #104E8B;
+        color: #FFF;
+        font-weight: bold;
+    }
+
+      table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+    
+    td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+
+    table[show-weeks] thead tr th {
+    padding: 0px;
+    font-size: 12px;
+    font-weight: normal;
+    padding-top:4px;
+    padding-bottom: 4px;
+    text-align: center;
+    margin: 0 auto;
+    padding-right: 5px;
+    padding-left: 5px;
+}
+table[show-weeks] thead tr td button:first-child
+{
+    background: transparent !important;
+}
+
+table[show-weeks] thead tr td button:last-child
+{
+    background: transparent !important;
+    
+}
+
+.icon-chevron-left:before {
+    content: "<";
+}
+
+.icon-chevron-right:before {
+    content: ">";
+}
+
+table[show-weeks] tbody tr td {
+    padding: 2px;
+    text-align: center;
+    font-size: 12px !important;
+    font-weight: normal;
+}
+
+table[show-weeks] tbody tr td button.btn-info {
+    padding: 2px;
+    text-align: center; 
+    background-color: #5bc0de;
+    border-color: #46b8da;
+    font-size: 12px;
+    font-weight: normal;
+    border-radius: 0px;
+}
+
+table[show-weeks] tbody tr td button {
+    padding: 2px;
+    text-align: center; 
+    border-radius: 0px;
+    background-color: whitesmoke;
+    border-color: whitesmoke;
+    font-size: 12px !important;
+    font-weight: normal;
+}
+
+    .tableizer-table td {
+        padding: 4px;
+        margin: 3px;
+        border: 1px solid #CCC;
+    }
+
+    .tableizer-table th {
+        background-color: #104E8B;
+        color: #FFF;
+        font-weight: bold;
+    }
+</style>
+
+<table>
+        <tr>
+          <th>Related To</th>
+          <th>Status</th>
+          <th>From</th>
+          <th>To</th>
+        </tr>
+        <tr>
+          <td>
+                <select data-ng-model="selectedRelatedTo" class="form-control">
+                    <option value="">--Select--</option>
+                    <option data-ng-selected="true" value="SO/C124">SO / C124</option>
+                    <option value="Irregularities">Irregularities</option>
+                    <option value="Communication">Communication</option>
+                    <option value="Inspection">Inspection</option>
+                    <option value="Renewal">Renewal</option>
+                    <option value="Review">Review</option>
+                    <option value="Restuctured">Restuctured</option>
+                    <option value="Margin">Margin</option>
+                    <option value="Security">Security</option>
+                    <option value="SMA">SMA</option>
+                    <option value="Ratings">Ratings</option>
+                    <option value="Documents">Documents</option>
+                    <option value="Exposure">Exposure</option>
+                    <option value="Interest">Interest</option>
+                </select>
+            </td>
+          <td>
+                <select data-ng-model="selectedStatus" class="form-control">
+                        <option value="">--Select--</option>
+                        <option data-ng-selected="true" value="Rectified">Rectified</option>
+                        <option value="Unrectified">Unrectified</option>
+                        <option value="NA">NA</option>
+                        <option value="SMA Report">SMA Report</option>  
+                        <option value="Due for Renewal">Due for Renewal</option>
+                        <option value="Interest/Penal">Interest/Penal</option>
+                </select>
+          </td>
+          <td><input id="startDate" type="text" class="form-control" ng-model="startDate" datepicker-popup="dd-MM-yyyy" close-text="Close" ng-required="true"/></td>
+          <td><input id="endDate" type="text" class="form-control" ng-model="endDate" datepicker-popup="dd-MM-yyyy" close-text="Close" ng-required="true"/></td>
+        </tr>
+</table>
+<table>
+    <tr>
+        <th style="border: #ffffff !important">
+            <button class="btn btn-info" style="margin-left: 40%;" ng-click="ViewReports()">Genrate</button>
+        </th>
+    </tr>
+</table>
+
+
+

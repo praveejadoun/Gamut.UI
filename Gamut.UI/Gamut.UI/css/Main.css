@@ -136,12 +136,11 @@ i, span {
             margin-right: 10px;
         }
 
-    #sidebar ul li.active > a, a[aria-expanded="true"] {
-        color: #fff;
-        background: #6d7fcc;
+    #sidebar ul li.active, a[aria-expanded="true"] {
+        color: #7386d5;
+        background: #fff;
     }
-
-
+    
 a[data-toggle="collapse"] {
     position: relative;
 }

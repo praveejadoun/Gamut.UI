@@ -1,33 +1,34 @@
-﻿app.controller('ViewController', function ($scope, $location, $filter, $window, $rootScope,$filter,toaster, userService,GeneralService,WarningIndicatorsService,ShareData,blockUI) {
+﻿app.controller('logsController', function ($scope, $location, $filter, $window, $rootScope,$filter, userService,GeneralService,LogsService,ShareData,blockUI) {
     $scope.userId = localStorage.getItem("userName");
     if($scope.userId == null){
         $location.path('/');
     }
 
+    $scope.selectedLogType = "Communication";
     var Currentdate = new Date().getTime(),previousDate = 1000 * 60 * 60 * 24 * 365 * 2,
     finalstartDate = new Date(Currentdate - previousDate);
     $scope.startDate = finalstartDate;
     $scope.endDate = new Date();
 
-    getViewDetails()
-    function getViewDetails() {
+    getActiveLogDetails();
+    function getActiveLogDetails() {
         blockUI.start('Please wait...');
         $scope.formatedStartDate = $filter('date')($scope.startDate, "dd-MM-yyyy");
         $scope.formatedendDateDate = $filter('date')($scope.endDate, "dd-MM-yyyy");
         $scope.customerId = localStorage.getItem("custId");
-        var ViewDetailsData = WarningIndicatorsService.getWarningIndicatorsByDate($scope.customerId, $scope.formatedStartDate, $scope.formatedendDateDate);
+        var ViewActiveLogDetailsData = LogsService.getactiveLogs($scope.customerId,$scope.selectedLogType, $scope.formatedStartDate, $scope.formatedendDateDate);
         
-        ViewDetailsData.then(function (response) {
-            $scope.ViewDetailsDataList = response.data;
-            $scope.ViewList = response.data.detailData;
+        ViewActiveLogDetailsData.then(function (response) {
+           $scope.activeLog = response.data;
             blockUI.stop();
         },function (errorresponse) {
             blockUI.stop();
-            $scope.error = 'failure loading View Data', errorresponse;
+            $scope.error = 'failure loading Active Log Data', errorresponse;
         });
     } 
 
-    $scope.getViewbyDate = function(){
-        getViewDetails();
+    $scope.getActiveLogs = function(){
+        console.log($scope.selectedLogType)
+        getActiveLogDetails();
     }
 });
