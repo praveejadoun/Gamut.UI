@@ -37,9 +37,10 @@
         $scope.endDate = selectedYear.endDate;
     }
 
-    $scope.saveData = function(id, auditType, code, comments, inspectionStatus, followUpDate, compiledDate, lastUpdatedBy){
+    $scope.saveData = function(id, cust_Id,auditType, code, comments, inspectionStatus, followUpDate, compiledDate, lastUpdatedBy){
         var data = {
-            "cust_Id": id,
+            "id":id,
+            "cust_Id": cust_Id,
             "auditType": auditType,
             "code": code,
             "comments": comments,

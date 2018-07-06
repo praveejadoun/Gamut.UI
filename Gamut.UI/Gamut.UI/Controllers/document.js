@@ -37,8 +37,9 @@
         $scope.endDate = selectedYear.endDate;
     }
 
-    $scope.saveData = function(cust_id, periodicity, documentType, submitted, submittedDate, deviationNoted, compiledDate, isChecked, monitorId, lastUpdatedBy, lastUpdatedOn){
+    $scope.saveData = function(id,cust_id, periodicity, documentType, submitted, submittedDate, deviationNoted, compiledDate, isChecked, monitorId, lastUpdatedBy, lastUpdatedOn){
         var data = {
+            "Id":id,
             "cust_id": cust_id,
             "periodicity": periodicity,
             "documentType": documentType,
@@ -46,14 +47,14 @@
             "submittedDate": $filter('date')(submittedDate, "dd-MM-yyyy"),
             "deviationNoted": deviationNoted,
             "compiledDate": $filter('date')(compiledDate, "dd-MM-yyyy"),
-            "isChecked": isChecked,
+            "isChecked": isChecked ? 1 : 0,
             "monitorId": monitorId,
             "lastUpdatedBy": lastUpdatedBy,
             "lastUpdatedOn": $filter('date')(new Date(), "dd-MM-yyyy")
           }
           
         blockUI.start('Please wait...');
-        var newsResponse = DocumentService.putDocuments(cust_id, data);
+        var newsResponse = DocumentService.putDocuments(id, data);
         newsResponse.then(function (res) {
             toaster.pop('success', "success", "Saved Successfully");
             blockUI.stop();

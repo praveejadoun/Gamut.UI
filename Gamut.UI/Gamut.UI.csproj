@@ -47,15 +47,21 @@
   <ItemGroup>
     <Content Include="Gamut.UI\App.js" />
     <Content Include="Gamut.UI\Controllers\accountDetails.js" />
+    <Content Include="Gamut.UI\Controllers\activeLogs.js" />
     <Content Include="Gamut.UI\Controllers\AuthController.js" />
+    <Content Include="Gamut.UI\Controllers\document.js" />
     <Content Include="Gamut.UI\Controllers\financials.js" />
     <Content Include="Gamut.UI\Controllers\GeneralController.js" />
     <Content Include="Gamut.UI\Controllers\GeneralController2.js" />
+    <Content Include="Gamut.UI\Controllers\inspection.js" />
     <Content Include="Gamut.UI\Controllers\intrestRate.js" />
     <Content Include="Gamut.UI\Controllers\news.js" />
     <Content Include="Gamut.UI\Controllers\rating.js" />
+    <Content Include="Gamut.UI\Controllers\reports.js" />
     <Content Include="Gamut.UI\Controllers\restucturing.js" />
     <Content Include="Gamut.UI\Controllers\security.js" />
+    <Content Include="Gamut.UI\Controllers\SMA.js" />
+    <Content Include="Gamut.UI\Controllers\snapshot.js" />
     <Content Include="Gamut.UI\Controllers\Soc124Controller.js" />
     <Content Include="Gamut.UI\Controllers\view.js" />
     <Content Include="Gamut.UI\css\angular-block-ui.min.css" />
@@ -89,9 +95,11 @@
     <Content Include="Gamut.UI\Scripts\toaster.min.js" />
     <Content Include="Gamut.UI\Services.js" />
     <Content Include="Gamut.UI\Views\accountDetails.html" />
+    <Content Include="Gamut.UI\Views\activeLogs.html" />
     <Content Include="Gamut.UI\Views\financials.html" />
     <Content Include="Gamut.UI\Views\Home\Index.html" />
     <Content Include="Gamut.UI\Views\Home\login.html" />
+    <Content Include="Gamut.UI\Views\inspection.html" />
     <Content Include="Gamut.UI\Views\intrestRate.html" />
     <Content Include="Gamut.UI\Views\login.html" />
     <Content Include="Gamut.UI\Views\ManageData\AddNew.html" />
@@ -103,8 +111,11 @@
     <Content Include="Gamut.UI\Views\ManageData\Soc124.html" />
     <Content Include="Gamut.UI\Views\news.html" />
     <Content Include="Gamut.UI\Views\rating.html" />
+    <Content Include="Gamut.UI\Views\reports.html" />
     <Content Include="Gamut.UI\Views\restucturing.html" />
     <Content Include="Gamut.UI\Views\security.html" />
+    <Content Include="Gamut.UI\Views\SMA.html" />
+    <Content Include="Gamut.UI\Views\snapshot.html" />
     <Content Include="Gamut.UI\Views\view.html" />
     <Content Include="Index.html" />
     <Content Include="web.config" />
