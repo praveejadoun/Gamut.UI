@@ -19,7 +19,7 @@
         var ViewActiveLogDetailsData = LogsService.getactiveLogs($scope.customerId,$scope.selectedLogType, $scope.formatedStartDate, $scope.formatedendDateDate);
         
         ViewActiveLogDetailsData.then(function (response) {
-           $scope.activeLog = response.data;
+           $scope.activeLog = response.data.entData;
             blockUI.stop();
         },function (errorresponse) {
             blockUI.stop();

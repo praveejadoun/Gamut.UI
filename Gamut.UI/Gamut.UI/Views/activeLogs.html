@@ -142,23 +142,27 @@ table[show-weeks] tbody tr td button {
 </div>
 <div class="container">&nbsp;</div>
 <table>
-        <tr>
-          <th>Date</th>
-          <th>Irregularity/Communication/Information/Date</th>
-          <th>Type</th>
-          <th>Steps Taken / Comments</th>
-          <th>Attachment if any</th>
-          <th>Next Followup date</th>
-          <th>Ratification Date</th>
-        </tr>
-        <tr ng-repeat= "List in activeLog">
-          <td>{{List.smaClass}}</td>
-          <td>{{List.accountNumber}}</td>
-          <td>{{List.reason}}</td>
-          <td>{{List.noOfDays}}</td>
-          <td>{{List.nextStatus}}</td>
-          <td>{{List.smaDate | date:'dd-MM-yyyy'}}</td>
-          <td>{{List.smaDate | date:'dd-MM-yyyy'}}</td>
+    <tr>
+        <th>Compiled Date</th>
+        <th>Irregularity/Communication/Information/Date</th>
+        <th>Activity Type</th>
+        <th>Log Type</th>
+        <th>Steps Taken / Comments</th>
+        <th>Attachment if any</th>
+        <th>Next Followup date</th>
+        <th>Ratification Date</th>
+    </tr>
+        <tr ng-repeat="List in activeLog">
+            <td>{{List.compiledDate | date:'dd-MM-yyyy'}}</td>
+            <td>{{List.informationDate | date:'dd-MM-yyyy'}}</td>
+            <td>{{List.activityType}}</td>
+            <td>{{List.logType}}</td>
+            
+            <td>{{List.stepsTaken}}</td>
+            <td>{{List.attachment}}</td>
+            <td>{{List.nextFollowupDate | date:'dd-MM-yyyy'}}</td>
+            <td>{{List.ractificationDate | date:'dd-MM-yyyy'}}</td>
+            
         </tr>
         <tr>
             <th style="border: #ffffff !important">
