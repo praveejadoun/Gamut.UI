@@ -13,6 +13,20 @@
         
        
         </style>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <button style="margin-left: 46%;" type="button" class="btn btn-primary">Print</button>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            &nbsp;
+        </div>
+    </div>
+</div>
 
 <table ng-repeat= "(key, value) in group | groupBy: 'securityType'" ng-if="group.length  >0">
     <tr>
@@ -26,7 +40,7 @@
           <th>Date</th>
           <th>Insurance Value(Expiry Date)</th>
           <th>Correct Y/N</th>
-          <th>If 'No' Followup date</th>
+          <th>If 'No' Follow-up Date</th>
         </tr>
         <tr ng-repeat= "List in value">
           <td>{{List.accountNo}}</td>
