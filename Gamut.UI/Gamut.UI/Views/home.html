@@ -99,7 +99,6 @@ table[show-weeks] tbody tr td button {
         color: #FFF;
         font-weight: bold;
     }
-
     .shad{
         box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
         padding: 15px 10px;
@@ -108,16 +107,15 @@ table[show-weeks] tbody tr td button {
         border-radius: 0;
         margin-bottom: 40px; 
     }
+   
 </style>
-
 <div class="container">
     <div class="row">
         <div class="col-sm-12">
-            <span class="tag">Reports / Documents</span>  
+                <span class="tag">Home</span>  
         </div>
     </div>
 </div>
-
 <div class="container">
     <div class="row">
         <div class="col-sm-12">
@@ -125,97 +123,161 @@ table[show-weeks] tbody tr td button {
         </div>
     </div>
 </div>
+
+<div class="container">&nbsp;</div>
+<table >
+        <tr>
+          <th>&nbsp;</th>
+          <th style="border-right-color: white;">&nbsp;</th>
+          <th>Score</th>
+        </tr>
+        <tr>
+            <td>Compliance of SO Conditions and Approvals</td>
+            <td>&nbsp;</td>
+            <td>100</td>
+        </tr>
+        <tr>
+            <td>Internal rating</td>
+            <td>&nbsp;</td>
+            <td>100</td>
+        </tr>
+        <tr>
+            <td>Financials</td>
+            <td>&nbsp;</td>
+            <td>100</td>
+        </tr>
+        <tr>
+            <td>Security</td>
+            <td>&nbsp;</td>
+            <td>100</td>
+        </tr>
+        <tr>
+            <td>Inspection Comments</td>
+            <td>&nbsp;</td>
+            <td>100</td>
+        </tr>
+        <tr>
+            <td>Special Mentioned Accounts</td>
+            <td>&nbsp;</td>
+            <td>100</td>
+        </tr>
+        <tr>
+            <td>Irregularities</td>
+            <td>&nbsp;</td>
+            <td>100</td>
+        </tr>
+        <tr>
+            <td>External Sources</td>
+            <td>&nbsp;</td>
+            <td>100</td>
+        </tr>
+        <tr>
+            <td>Department Views</td>
+            <td>&nbsp;</td>
+            <td>200</td>
+        </tr>
+        <tr>
+            <td style="border: solid;">Total</td>
+            <td style="border: solid;">&nbsp;</td>
+            <td style="border: solid;">1000</td>
+        </tr>
+</table>
 <div class="container">
     <div class="row">
-        <div class="col-sm-12">
-            &nbsp;
-        </div>
+        <div class="col-sm-12">&nbsp;</div>
     </div>
 </div>
 
 <div class="container">
     <div class="row">
         <div class="col-sm-12">
-            <div class="col-sm-1">
-                <label for="finSelect"> Financial Year: </label>
+            <div class="col-sm-6">
+                <div class="col-sm-3">
+                        Refrences:
+                </div>
+                <div class="col-sm-6">
+                    <select data-ng-model="Refrences" class="form-control">
+                        <option value="">--Select--</option>
+                        <option value="Internal Circular">Internal Circular</option>
+                        <option value="RBI Circular">RBI Circular</option>
+                        <option value="Loan Policy">Loan Policy</option>
+                        <option value="Deligation Chart">Deligation Chart</option>
+                        <option value="Interest Refrences">Interest Refrences</option>
+                    </select>
+                </div>
+                <div class="col-sm-2" ng-if="Refrences != null && Refrences != ''">
+                    <a href="{{Refrences}}" class="btn btn-info" target="_blank" role="button">Go</a>
+                </div>
             </div>
-            <div class="col-sm-2">
-                <select name="finSelect" class="form-control" id="mySelect"
-                    data-ng-options="option.fyName for option in financialYear track by option.$id"
-                    data-ng-model="financialYear.selectedOption" data-ng-change="selectFyName(financialYear.selectedOption)">
-                    <option  data-ng-selected="true" value="">--Select--</option>
-                </select>
-            </div>
-            <div class="col-sm-3">
-                    <input
-                    id="startDate"
-                    type="text"
-                    class="form-control"
-                    ng-model="startDate"
-                    datepicker-popup="dd-MM-yyyy"
-                    close-text="Close"
-                    ng-required="true"
-                    disabled="disabled"/>
-            </div>
-            <div class="col-sm-3">
-                    <input
-                    id="endDate"
-                    type="text"
-                    class="form-control"
-                    ng-model="endDate"
-                    datepicker-popup="dd-MM-yyyy"
-                    close-text="Close"
-                    ng-required="true"
-                    disabled="disabled"/>
-            </div>
-            <div class="col-sm-2">
-                <button class="btn btn-info" ng-click="getViewDocumentbyDate()">Search</button>
+            <div class="col-sm-6">
+                <div class="col-sm-4">
+                        Communication:
+                </div>
+                <div class="col-sm-6">
+                    <select data-ng-model="Communications" class="form-control">
+                        <option value="">--Select--</option>
+                        <option value="Internal Circular">Recent Orders</option>
+                        <option value="RBI Circular">Mails (Open Outlook)</option>
+                        <option value="Loan Policy">Internal Chatting App</option>
+                        <option value="Deligation Chart">Employee Search</option>
+                    </select>
+                </div>
+                <div class="col-sm-2" ng-if="Communications != null && Communications != ''">
+                    <a href="{{Communications}}" class="btn btn-info" target="_blank" role="button">Go</a>
+                </div>
             </div>
         </div>
     </div>
 </div>
-<div class="container">&nbsp;</div>
-<table ng-repeat= "(key, value) in group | groupBy: 'periodicity'" ng-if="group.length  >0">
-        <tr>
-          <th>Periodicity</th>
-          <th>Type</th>
-          <th ng-if="key == 'General'">isChecked</th>
-          <th ng-if="key == 'General'">CRMD /CMC Monitor ID</th>
-          <th ng-if="key != 'General'">Submitted Y/N or NA</th>
-          <th ng-if="key != 'General'">Date</th>
-          <th ng-if="key != 'General'">Deviation noted</th>
-          <th>Save</th>
-        </tr>
-        <tr ng-repeat= "List in value">
-          <td>{{List.periodicity}}</td>
-          <td>{{List.documentType}}</td>
-          <td ng-if="key != 'General'">
-            <select data-ng-model="List.submitted" class="form-control">
-                    <option value="">--Select--</option>
-                    <option value="Yes">Yes</option>
-                    <option value="No">No</option>
-                    <option value="NA">NA</option>
-            </select>
-          </td>
-          <td ng-if="key == 'General'"><input type="checkbox" ng-model="List.isChecked" ng-checked="List.isChecked"></td>
-          <td ng-if="key == 'General'"><input type="text" class="form-control" maxlength="200" ng-model="List.monitorId" ></td>
-          <td ng-if="key != 'General'"><input id="startDate" type="text" class="form-control" ng-model="List.submittedDate" datepicker-popup="dd-MM-yyyy" close-text="Close" ng-required="true"/></td>
-          <td ng-if="key != 'General'"><input type="text" class="form-control" name="approvalFor" maxlength="200" ng-model="List.deviationNoted" ></td>
-          <td><button type="button" class="btn btn-success" ng-click="saveData(List.id,List.cust_id,List.periodicity,List.documentType,List.submitted,List.submittedDate,List.deviationNoted,List.compiledDate,List.isChecked,List.monitorId,List.lastUpdatedBy,List.lastUpdatedOn)">Save</button></td>
-        </tr>
-        <tr>
-            <th style="border: #ffffff !important">
-                <br/>
-            </th>
-        </tr>
-</table>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">&nbsp;</div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="col-sm-6">
+                <div class="col-sm-3">
+                        Reminders:
+                </div>
+                <div class="col-sm-6">
+                    <select data-ng-model="Reminders" class="form-control">
+                        <option value="">--Select--</option>
+                        <option value="For Month">For Month</option>
+                        <option value="For Week">For Week</option>
+                    </select>
+                </div>
+                <div class="col-sm-2" ng-if="Reminders != null && Reminders != ''">
+                    <a href="{{Reminders}}" class="btn btn-info" target="_blank" role="button">Go</a>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                    <div class="col-sm-4">
+                            My Repository:
+                    </div>
+                    <div class="col-sm-6">
+                        <select data-ng-model="Repository" class="form-control">
+                            <option value="">--Select--</option>
+                            <option value="For Month">Attachment</option>
+                        </select>
+                    </div>
+                    <div class="col-sm-2" ng-if="Repository != null && Repository != ''">
+                        <input type="file" style="width: 0%; margin-left: -37%;"/>
+                    </div>
+                </div>
+        </div>
+    </div>
+</div>
 
 <div class="container">
         <div class="row">
             <div class="col-sm-12">&nbsp;</div>
         </div>
     </div>
-
+    
 <nav class="shad">
         <div class="container-fluid">
             <div class="container">

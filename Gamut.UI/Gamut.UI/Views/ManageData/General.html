@@ -1,9 +1,66 @@
 ﻿<style type="text/css">
-    table.tableizer-table {
+  table.tableizer-table {
         font-size: 12px;
         border: 1px solid #CCC;
         font-family: Arial, Helvetica, sans-serif;
     }
+
+    table[show-weeks] thead tr th {
+    padding: 0px;
+    font-size: 12px;
+    font-weight: normal;
+    padding-top:4px;
+    padding-bottom: 4px;
+    text-align: center;
+    margin: 0 auto;
+    padding-right: 5px;
+    padding-left: 5px;
+}
+table[show-weeks] thead tr td button:first-child
+{
+    background: transparent !important;
+}
+
+table[show-weeks] thead tr td button:last-child
+{
+    background: transparent !important;
+    
+}
+
+.icon-chevron-left:before {
+    content: "<";
+}
+
+.icon-chevron-right:before {
+    content: ">";
+}
+
+table[show-weeks] tbody tr td {
+    padding: 2px;
+    text-align: center;
+    font-size: 12px !important;
+    font-weight: normal;
+}
+
+table[show-weeks] tbody tr td button.btn-info {
+    padding: 2px;
+    text-align: center; 
+    background-color: #5bc0de;
+    border-color: #46b8da;
+    font-size: 12px;
+    font-weight: normal;
+    border-radius: 0px;
+}
+
+table[show-weeks] tbody tr td button {
+    padding: 2px;
+    text-align: center; 
+    border-radius: 0px;
+    background-color: whitesmoke;
+    border-color: whitesmoke;
+    font-size: 12px !important;
+    font-weight: normal;
+}
 
     .tableizer-table td {
         padding: 4px;
@@ -20,7 +77,46 @@
         padding-top: 20px !important;
 
 }
+
+    #table-wrapper {
+    position:relative;
+    }
+
+    #table-scroll {
+    height:456px;
+    overflow:auto;  
+    margin-top:20px;
+    }
+
+    #table-wrapper table {
+    width:100%;    
+    }
+
+    #table-wrapper table thead th .text {
+    position:absolute;   
+    top:-20px;
+    z-index:2;
+    height:20px;
+    width:35%;
+    }
+
+    .shad{
+        box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+        padding: 15px 10px;
+        background: #fff;
+        border: none;
+        border-radius: 0;
+        margin-bottom: 40px; 
+    }
 </style>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+                <span class="tag">General</span>  
+        </div>
+    </div>
+</div>
+
 <div class="container">
     <div class="row">
         <div class="col-sm-12">
@@ -28,6 +124,7 @@
         </div>
     </div>
 </div>
+
 <div class="container">
     <div class="row">
         <div class="col-sm-12">
@@ -35,250 +132,100 @@
         </div>
     </div>
 </div>
-<div class="container">
-    <!-- <div class="row">
-            <div class="col-sm-12">
-        <table class="table tab-content table-bordered">
-            <thead>
-                <tr class="tableizer-firstrow">
-                    <th>Cust ID</th>
-                    <th>{{General.entData.cust_id}}</th>
-                    <th>Name</th>
-                    <th>{{General.customer.cust_Name}}</th>
-                    <th>&nbsp;</th>
-                    <th>&nbsp;</th>
-                    <th>Exposure</th>
-                    <th>{{General.customer.exposure}}</th>
-                    <th> (Rs. in Lacs)</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Pan No.</td>
-                    <td>{{General.customer.pan_No}}</td>
-                    <td>Constitution</td>
-                    <td>{{General.customer.constitution}}</td>
-                    <td>&nbsp;</td>
-                    <td>Branch</td>
-                    <td></td>
-                    <td>{{General.customer.exposure_AsOn}}</td>
-                    <td>Print</td>
-                </tr>
-            </tbody>
-        </table>
-        </div>
-    </div> -->
-
-    <div class="row">
+<div class="container" id="table-wrapper">
+    <div class="row" id="table-scroll">
         <div class="col-sm-6">
             <table class="table tab-content table-bordered">
                 <thead>
                     <tr class="tableizer-firstrow ">
                         <th>Particular</th>
                         <th>Details</th>
-                        <th>&nbsp;</th>
-                        <!-- <th>Limit Details</th>
-                                <th>Details</th>
-                                <th>&nbsp;</th>
-                                <th>&nbsp;</th>-->
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td>Activity</td>
                         <td>{{General.entData.activity}}</td>
-                        <td>&nbsp;</td>
-                        <!-- <td>Nature</td>
-                                <td>Limit</td>
-                                <td>Balance</td>
-                                <td>Exposure</td> -->
                     </tr>
                     <tr>
                         <td>Sector - Sub Sector</td>
                         <td>{{General.entData.sector_SubSector}}</td>
-                        <td>&nbsp;</td>
-                        <!-- <td>Working Capital</td>
-                                <td>
-                                    {{General.entData.working_capital_L}}
-                               </td>
-                                <td>{{General.entData.working_capital_B}}www</td>
-                                <td>{{General.entData.working_capital_E}}eee</td> -->
                     </tr>
                     <tr>
                         <td>Priority/Non Priority</td>
                         <td>{{General.entData.priority_Non_Priority}}</td>
-                        <td>&nbsp;</td>
-                        <!-- <td>Term Loan</td>
-                                <td>{{General.entData.term_Load_L}}</td>
-                                <td>{{General.entData.term_Load_B}}</td>
-                                <td>{{General.entData.term_Load_E}}</td> -->
                     </tr>
                     <tr>
                         <td>Govt Sponsored</td>
                         <td>{{General.entData.govt_sponsored}}
-                            <!-- <select data-ng-model="General.entData.govt_sponsored ">
-                                <option ng-selected="General.entData.govt_sponsored==x .lookUp_Value " ng-repeat="x in General.lookupGovtSponsored
-                        " value="{{x.lookUp_Value}} ">{{x.lookUp_Value}}</option>
-                            </select> -->
                         </td>
-                        <td>&nbsp;</td>
-                        <!-- <td>Bank Guarantee</td>
-                                <td>{{General.entData.bank_Gurantee_L}}</td>
-                                <td>{{General.entData.bank_Gurantee_B}}</td>
-                                <td>{{General.entData.bank_Gurantee_E}}</td> -->
                     </tr>
                     <tr>
                         <td>Industry</td>
                         <td>{{General.entData.industry}}</td>
-                        <td>&nbsp;</td>
-                        <!-- <td>Letter Of Credit</td>
-                                <td>{{General.entData.letter_of_credit_L}}</td>
-                                <td>{{General.entData.letter_of_credit_B}}</td>
-                                <td>{{General.entData.letter_of_credit_E}}</td> -->
                     </tr>
                     <tr>
                         <td>Incorporation</td>
                         <td>
                             {{General.entData.incorporation| date:'dd-MM-yyyy'}}
                         </td>
-                        <td>&nbsp;</td>
-                        <!-- <td>PCL</td>
-                                <td>{{General.entData.pcL_L}}</td>
-                                <td>{{General.entData.pcL_B}}</td>
-                                <td>{{General.entData.pcL_E}}</td> -->
                     </tr>
                     <tr>
                         <td>Connection Since</td>
                         <td>
                             {{General.entData.connection_Since| date:'dd-MM-yyyy'}}</td>
-                        <!--<td>Bill Purchase</td>-->
-                        <td></td>
-                        <!-- <td>{{General.entData.bill_Purchase_L}}</td>
-                                <td>{{General.entData.bill_Purchase_B}}</td>
-                                <td>{{General.entData.bill_Purchase_E}}</td>
-                                <td>&nbsp;</td> -->
                     </tr>
                     <tr>
                         <td>Internal Rating</td>
-                        <td>{{General.entData.internal_Rating}}
-                        </td>
                         <td>
-                            <!--<input type="date " id="exampleInput " name="input " ng-model="General.entData.internal_Rating_AsOn "
-                            placeholder="yyyy-MM-dd " min="2013-01-01 " max="2013-12-31 " required />-->
-                            As on {{General.entData.internal_Rating_AsOn| date:'dd-MM-yyyy'}}
+                            {{General.entData.internal_Rating}} ({{General.entData.internal_Rating_AsOn| date:'dd-MM-yyyy'}})
                         </td>
-                        <!-- <td>Total</td>
-                                <td>&nbsp;</td>
-                                <td>&nbsp;</td>
-                                <td>&nbsp;</td> -->
                     </tr>
                     <tr>
                         <td>External Rating</td>
-                        <td>{{General.entData.external_Rating}}</td>
-                        <td>As on {{General.entData.external_Rating_AsOn| date:'dd-MM-yyyy'}}</td>
-                        <!-- <td>&nbsp;</td>
-                                <td>&nbsp;</td>
-                                <td>&nbsp;</td>
-                                <td>&nbsp;</td> -->
+                        <td>{{General.entData.external_Rating}} ({{General.entData.external_Rating_AsOn| date:'dd-MM-yyyy'}})</td>
                     </tr>
                     <tr>
                         <td>Inspection comments</td>
-                        <td>&nbsp;</td>
                         <td>{{General.entData.inspection_Comments}}</td>
-                        <!-- <td>&nbsp;</td>
-                                <td>&nbsp;</td>
-                                <td>&nbsp;</td>
-                                <td>&nbsp;</td> -->
                     </tr>
                     <tr>
                         <td>Banking Argmt</td>
                         <td>
-                            <!--<select data-ng-model="General.entData.banking_Argmt ">
-                            <option ng-selected="General.entData.banking_Argmt==x .lookUp_Value " ng-repeat="x in General.bankingArgmt
-                            " value="{{x.lookUp_Value}} ">{{x.lookUp_Value}}</option>
-                            </select>-->
                             {{General.entData.banking_Argmt}}
                         </td>
-                        <td>&nbsp;</td>
-                        <!-- <td>Default</td>
-                                <td>{{General.entData.defaults}}</td>
-                                <td>&nbsp;</td>
-                                <td>{{General.entData.defaults_As_On}}</td> -->
                     </tr>
                     <tr>
                         <td>If Consortium</td>
                         <td>{{General.entData.if_Consortium}}</td>
-                        <td>&nbsp;</td>
-                        <!-- <td>&nbsp;</td>
-                                <td>&nbsp;</td>
-                                <td>&nbsp;</td>
-                                <td>&nbsp;</td> -->
                     </tr>
                     <tr>
                         <td>Lead Bank</td>
                         <td>{{General.entData.lead_Bank}}</td>
-                        <td>&nbsp;</td>
-                        <!-- <td>Guarantor / Co-Obligant</td>
-                                <td> {{General.gur1name}}</td>
-                                <td>&nbsp;</td>
-                                <td>{{General.entData.gurantor_1}}</td> -->
                     </tr>
                     <tr>
                         <td>SMA</td>
                         <td>{{General.entData.sma}}</td>
-                        <td>&nbsp;</td>
-                        <!-- <td>Guarantor / Co-Obligant</td>
-                                <td> {{General.gur2name}}</td>
-                                <td>&nbsp;</td>
-                                <td>{{General.entData.gurantor_2}}</td> -->
                     </tr>
                     <tr>
                         <td>DCCO</td>
-                        <td>{{General.entData.dcco}}
-                            <!-- <select data-ng-model="General.entData.dCCO ">
-                                <option ng-selected="General.entData.dcco==x .lookUp_Value " ng-repeat="x in General.lookupDCCO
-                        " value="{{x.lookUp_Value}} ">{{x.lookUp_Value}}</option>
-                            </select> -->
-                        </td>
                         <td>
-                            {{General.entData.dccO_AsOn}}</td>
-                        <!-- <td>Guarantor / Co-Obligant</td>
-                                <td> {{General.gur3name}}
-                                </td>
-                                <td>&nbsp;</td>
-                                <td>{{General.entData.gurantor_3}}</td> -->
+                            {{General.entData.dcco}} ({{General.entData.dccO_AsOn}})
+                        </td>
                     </tr>
                     <tr>
                         <td>Takeover</td>
-                        <td>{{General.entData.takeover}}
-                            <!-- <select data-ng-model="General.entData.takeover ">
-                                <option ng-selected="General.entData.takeover==x .lookUp_Value " ng-repeat="x in General.takeover
-                        " value="{{x.lookUp_Value}} ">{{x.lookUp_Value}}</option>
-                            </select> -->
+                        <td>
+                            {{General.entData.takeover}} ({{General.entData.takeover_AsOn}})
                         </td>
-                        <td>{{General.entData.takeover_AsOn}}</td>
-                        <!-- <td>Promoter's/ Directors</td>
-                                <td> {{General.prom1name}}</td>
-                                <td>&nbsp;</td>
-                                <td>{{General.entData.promoter_1}}</td> -->
                     </tr>
                     <tr>
                         <td>Take over from</td>
                         <td>{{General.entData.takeover_From}}</td>
-                        <td>&nbsp;</td>
-                        <!-- <td>Promoter's/ Directors</td>
-                                <td> {{General.prom2name}}</td>
-                                <td>&nbsp;</td>
-                                <td>{{General.entData.promoter_2}}</td> -->
                     </tr>
                     <tr>
                         <td>Reason For Takeover</td>
                         <td>{{General.entData.reason_for_Takeover}}</td>
-                        <td>&nbsp;</td>
-                        <!-- <td>Promoter's/ Directors</td>
-                                <td> {{General.prom3name}}</td>
-                                <td>&nbsp;</td>
-                                <td>{{General.entData.promoter_3}}</td> -->
                     </tr>
                     <tr>
                         <td></td>
@@ -289,18 +236,15 @@
                     </tr>
                 </tbody>
             </table>
-            <p>{{error}}</p>
         </div>
 
 
         <div class="col-sm-6">
-
             <table class="table tab-content table-bordered">
                 <thead>
                     <tr class="tableizer-firstrow ">
                         <th>Limit Details</th>
                         <th colspan="3" align="center">Details</th>
-
                     </tr>
                 </thead>
                 <tbody>
@@ -309,7 +253,6 @@
                         <td>Limit</td>
                         <td>Balance</td>
                         <td>Exposures</td>
-
                     </tr>
                     <tr ng-repeat="x in General.exposures">
                         <td>
@@ -317,15 +260,12 @@
                         </td>
                         <td>
                             {{x.limit}}
-
                         </td>
                         <td>
                             {{x.balance}}
-
                         </td>
                         <td>
                             {{x.exposure}}
-
                         </td>
                     </tr>
                     <tr>
@@ -367,21 +307,73 @@
                         <td style="padding-left: 24%;">Guarantors are not applicable</td>
                     </tr>
                 </table>
-                
-
                 </tbody>
             </table>
         </div>
-
-
     </div>
-
-
 </div>
-
-
-<!-- <br />
-<br />
-<pre>
-        {{General.exposures | json}}
-    </pre> -->
+<div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                &nbsp;
+            </div>
+        </div>
+    </div>
+<div>
+<nav class="shad">
+    <div class="container-fluid">
+        <div class="container">
+            <div class="row">
+                    <div class="col-sm-12">
+                        <div class="col-sm-2">
+                            Observation Noted:
+                        </div>
+                        <div class="col-sm-4">
+                            <input type="text" class="form-control" name="observationNoted" ng-model="observationNoted" >
+                        </div>
+                        <div class="col-sm-2">
+                            Communicated To: 
+                        </div>
+                        <div class="col-sm-4">
+                            <input type="text" class="form-control" name="communicatedTo" ng-model="communicatedTo" >
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">&nbsp;</div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="col-sm-2">
+                            Response Received: 
+                        </div>
+                        <div class="col-sm-4">
+                            <input type="text" class="form-control" name="responseReceived" ng-model="responseReceived" >
+                        </div>
+                        <div class="col-sm-2">
+                            Next Follow-Up Date:  
+                        </div>
+                        <div class="col-sm-4">
+                            <input id="startDate" type="text" class="form-control" ng-model="followUpDate" datepicker-popup="dd-MM-yyyy" close-text="Close" ng-required="true"/>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+            <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12">&nbsp;</div>
+                    </div>
+                </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <button type="button" style="margin-left: 90%;" class="btn btn-success" ng-click="saveData( )">Save</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>

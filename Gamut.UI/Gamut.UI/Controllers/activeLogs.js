@@ -31,4 +31,17 @@
         console.log($scope.selectedLogType)
         getActiveLogDetails();
     }
+
+    $scope.save = function () {
+        // blockUI.start('Please wait...');
+        // var promisePutStudent = LogsService.put($scope.General.entData.cust_id, JSON.stringify($scope.General.entData));
+        // promisePutStudent.then(function (pl) {
+        //     toaster.pop('success', "success", "Saved Successfully");
+        //     blockUI.stop();
+        // },
+        // function (errorPl) {
+        //     toaster.pop('error', "error", "Error while saving");
+        //     blockUI.stop();
+        // });
+    };
 });

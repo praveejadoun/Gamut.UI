@@ -72,8 +72,11 @@ app.config(['$routeProvider', '$locationProvider','$httpProvider', function ($ro
     }).when('/news',{
         templateUrl: 'Gamut.UI/Views/news.html',
         controller: 'NewsController'
+    }).when('/home',{
+        templateUrl: 'Gamut.UI/Views/home.html',
+        controller: 'HomeController'
     }).otherwise({
-        redirectTo: '/'
+        redirectTo: '/home'
     });
     
     // $locationProvider.html5Mode(true).hashPrefix('!')

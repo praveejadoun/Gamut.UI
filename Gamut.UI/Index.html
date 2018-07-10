@@ -30,6 +30,7 @@
 <script src="Gamut.UI/Controllers/SMA.js"></script>
 <script src="Gamut.UI/Controllers/reports.js"></script>
 <script src="Gamut.UI/Controllers/activeLogs.js"></script>
+<script src="Gamut.UI/Controllers/home.js"></script>
 <script src="Gamut.UI/Services.js"></script>
  
 <style>
@@ -44,7 +45,23 @@ td, th {
     text-align: left;
     padding: 8px;
 }
-
+ span.tag {
+    background: #7386d5;
+    display: inline-block;
+    margin: 0 15px 15px 0;
+    padding: 5px 33px;
+    position: relative;
+    font-weight: 700;
+}
+span.tag:after {
+    display: block;
+    content: " ";
+    position: absolute;
+    right: -30px;
+    top: 0;
+    border: 15px solid transparent;
+    border-left: 15px solid #7386d5;
+}
 </style>
 
 <body data-ng-app="ApplicationModule" ng-cloak="true">
@@ -61,11 +78,11 @@ td, th {
                     <!--Form with header-->
                     <div class="form" >
                         <div class="col-sm-10">
-                            <label for="form2" class="">usersname</label>
+                            <label for="form2" class="">Users Name</label>
                             <input type="text" id="form2" data-ng-model="$root.userName" class="form-control">
                         </div>
                         <div class="col-sm-10">
-                            <label for="form4">password</label>
+                            <label for="form4">Password</label>
                             <input type="password" id="form4" data-ng-model="$root.password" class="form-control">
                         </div>
 						<div class="col-sm-10">&nbsp;</div>
@@ -88,13 +105,13 @@ td, th {
             <div class="sidebar-header">
                 <h3>GAMUT</h3>
 				<strong>GT</strong>
-				<h4>Welcome User name</h4>
+				<h4>Welcome {{$root.userId}}</h4>
             </div>
 			
             <ul class="list-unstyled components" id="menu">
 
                 <li class="active">
-                    <a href="#/index">
+                    <a href="#/home">
                         <i class="glyphicon glyphicon-home"></i>
                         Home
                     </a>

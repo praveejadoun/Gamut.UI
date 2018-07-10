@@ -37,6 +37,7 @@
 
         },
             function (errorPl) {
+                toaster.pop('error', "error", "Error while loading General Data");
                 $scope.error = 'failure loading General Data', errorPl;
                 blockUI.stop();
             });

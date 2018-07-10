@@ -14,6 +14,7 @@
         blockUI.start('Please wait...');
         $scope.formatedStartDate = $filter('date')($scope.startDate, "dd-MM-yyyy");
         $scope.formatedendDateDate = $filter('date')($scope.endDate, "dd-MM-yyyy");
+        $scope.Type = $scope.Typeof;
         $scope.customerId = localStorage.getItem("custId");
         var newsDetailsData = NewsService.getNewsById($scope.customerId);
         

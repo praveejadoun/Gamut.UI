@@ -99,7 +99,24 @@ table[show-weeks] tbody tr td button {
         color: #FFF;
         font-weight: bold;
     }
+    .shad{
+        box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+        padding: 15px 10px;
+        background: #fff;
+        border: none;
+        border-radius: 0;
+        margin-bottom: 40px; 
+    }
 </style>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <span class="tag">SMA Catagorisation</span>  
+        </div>
+    </div>
+</div>
+    
 
 <div class="container">
     <div class="row">
@@ -127,7 +144,7 @@ table[show-weeks] tbody tr td button {
                     ng-model="startDate"
                     datepicker-popup="dd-MM-yyyy"
                     close-text="Close"
-                    ng-required="true""/>
+                    ng-required="true"/>
             </div>
             <div class="col-sm-4">
                     <input
@@ -192,19 +209,87 @@ table[show-weeks] tbody tr td button {
     </tr>
 </table>
 
-<table>
-    <tr>
-        <th>Branch Reply</th>
-        <th style="background-color: #dddddd;padding-left: 27%;">{{output.branchReply}}</th>
-    </tr>
-    <tr>
-        <th style="border: #ffffff !important">
-            <br/>
-        </th>
-    </tr>
-    <tr>
-        <th>Next Follow-up Date</th>
-        <th style="background-color: #dddddd;padding-left: 30%;">{{output.nextFollowupDate | date:'dd-MM-yyyy'}}</th>
-    </tr>
-</table>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="col-sm-2">
+                Branch Reply :
+            </div>
+            <div class="col-sm-6">
+                <input name="branchReply" type="text" class="form-control" ng-model="output.branchReply" />
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="col-sm-4">
+                Next Follow-up Date :
+            </div>
+            <div class="col-sm-6">
+                <input name="nextFollowupDate" readonly="true" type="text" class="form-control" ng-model="output.nextFollowupDate" />
+            </div>
+        </div>
+    </div>
+</div>
 
+<div class="container">
+        <div class="row">
+            <div class="col-sm-12">&nbsp;</div>
+        </div>
+    </div>
+
+<nav class="shad">
+        <div class="container-fluid">
+            <div class="container">
+                <div class="row">
+                        <div class="col-sm-12">
+                            <div class="col-sm-2">
+                                Observation Noted:
+                            </div>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" name="observationNoted" ng-model="observationNoted" >
+                            </div>
+                            <div class="col-sm-2">
+                                Communicated To: 
+                            </div>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" name="communicatedTo" ng-model="communicatedTo" >
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12">&nbsp;</div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="col-sm-2">
+                                Response Received: 
+                            </div>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" name="responseReceived" ng-model="responseReceived" >
+                            </div>
+                            <div class="col-sm-2">
+                                Next Follow-Up Date:  
+                            </div>
+                            <div class="col-sm-4">
+                                <input id="startDate" type="text" class="form-control" ng-model="followUpDate" datepicker-popup="dd-MM-yyyy" close-text="Close" ng-required="true"/>
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+                <div class="container">
+                        <div class="row">
+                            <div class="col-sm-12">&nbsp;</div>
+                        </div>
+                    </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <button type="button" style="margin-left: 90%;" class="btn btn-success" ng-click="saveData( )">Save</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>

@@ -94,7 +94,24 @@ table[show-weeks] tbody tr td button {
         color: #FFF;
         font-weight: bold;
     }
+
+    .shad{
+        box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+        padding: 15px 10px;
+        background: #fff;
+        border: none;
+        border-radius: 0;
+        margin-bottom: 40px; 
+    }
 </style>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <span class="tag">External Sources</span>  
+        </div>
+    </div>
+</div>
 
 <div class="container">
     <div class="row">
@@ -114,7 +131,7 @@ table[show-weeks] tbody tr td button {
 <div class="container">
     <div class="row">
         <div class="col-sm-12">
-            <div class="col-sm-4">
+            <div class="col-sm-3">
                     <input
                     id="startDate"
                     type="text"
@@ -122,9 +139,9 @@ table[show-weeks] tbody tr td button {
                     ng-model="startDate"
                     datepicker-popup="dd-MM-yyyy"
                     close-text="Close"
-                    ng-required="true""/>
+                    ng-required="true"/>
             </div>
-            <div class="col-sm-4">
+            <div class="col-sm-3">
                     <input
                     id="endDate"
                     type="text"
@@ -134,7 +151,14 @@ table[show-weeks] tbody tr td button {
                     close-text="Close"
                     ng-required="true"/>
             </div>
-            <div class="col-sm-4">
+            <div class="col-sm-3">
+                <select data-ng-model="Typeof" class="form-control">
+                        <option value="" data-ng-selected="true">--Select--</option>
+                        <option value="Industry">Industry</option>
+                        <option value="Borrower">Borrower</option>
+                </select>
+            </div>
+            <div class="col-sm-3">
                 <button class="btn btn-info" ng-click="getViewbyDate()">Search</button>
             </div>
         </div>
@@ -150,7 +174,7 @@ table[show-weeks] tbody tr td button {
                     <thead>
                         <tr >
                             <th>Date</th>
-                            <th>Scanned Images</th>
+                            <th>Links, Scanned Images, Other Files</th>
                             <th>Source</th>
                             <th>Steps Initiated</th>
                             <th>Informed to</th>
@@ -176,3 +200,67 @@ table[show-weeks] tbody tr td button {
             </div>
         </div>
     </div>
+
+    <div class="container">
+            <div class="row">
+                <div class="col-sm-12">&nbsp;</div>
+            </div>
+        </div>
+        
+    <nav class="shad">
+            <div class="container-fluid">
+                <div class="container">
+                    <div class="row">
+                            <div class="col-sm-12">
+                                <div class="col-sm-2">
+                                    Observation Noted:
+                                </div>
+                                <div class="col-sm-4">
+                                    <input type="text" class="form-control" name="observationNoted" ng-model="observationNoted" >
+                                </div>
+                                <div class="col-sm-2">
+                                    Communicated To: 
+                                </div>
+                                <div class="col-sm-4">
+                                    <input type="text" class="form-control" name="communicatedTo" ng-model="communicatedTo" >
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-12">&nbsp;</div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="col-sm-2">
+                                    Response Received: 
+                                </div>
+                                <div class="col-sm-4">
+                                    <input type="text" class="form-control" name="responseReceived" ng-model="responseReceived" >
+                                </div>
+                                <div class="col-sm-2">
+                                    Next Follow-Up Date:  
+                                </div>
+                                <div class="col-sm-4">
+                                    <input id="startDate" type="text" class="form-control" ng-model="followUpDate" datepicker-popup="dd-MM-yyyy" close-text="Close" ng-required="true"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div> 
+                    <div class="container">
+                            <div class="row">
+                                <div class="col-sm-12">&nbsp;</div>
+                            </div>
+                        </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <button type="button" style="margin-left: 90%;" class="btn btn-success" ng-click="saveData( )">Save</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
