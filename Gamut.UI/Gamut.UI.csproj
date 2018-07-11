@@ -52,6 +52,7 @@
     <Content Include="Gamut.UI\Controllers\document.js" />
     <Content Include="Gamut.UI\Controllers\financials.js" />
     <Content Include="Gamut.UI\Controllers\GeneralController.js" />
+    <Content Include="Gamut.UI\Controllers\home.js" />
     <Content Include="Gamut.UI\Controllers\inspection.js" />
     <Content Include="Gamut.UI\Controllers\intrestRate.js" />
     <Content Include="Gamut.UI\Controllers\news.js" />
@@ -96,6 +97,7 @@
     <Content Include="Gamut.UI\Views\accountDetails.html" />
     <Content Include="Gamut.UI\Views\activeLogs.html" />
     <Content Include="Gamut.UI\Views\financials.html" />
+    <Content Include="Gamut.UI\Views\home.html" />
     <Content Include="Gamut.UI\Views\Home\Index.html" />
     <Content Include="Gamut.UI\Views\Home\login.html" />
     <Content Include="Gamut.UI\Views\inspection.html" />
