@@ -55,6 +55,7 @@
     <Content Include="Gamut.UI\Controllers\home.js" />
     <Content Include="Gamut.UI\Controllers\inspection.js" />
     <Content Include="Gamut.UI\Controllers\intrestRate.js" />
+    <Content Include="Gamut.UI\Controllers\misc.js" />
     <Content Include="Gamut.UI\Controllers\news.js" />
     <Content Include="Gamut.UI\Controllers\rating.js" />
     <Content Include="Gamut.UI\Controllers\reports.js" />
@@ -110,6 +111,7 @@
     <Content Include="Gamut.UI\Views\ManageData\General.html" />
     <Content Include="Gamut.UI\Views\ManageData\ShowAll.html" />
     <Content Include="Gamut.UI\Views\ManageData\Soc124.html" />
+    <Content Include="Gamut.UI\Views\misc.html" />
     <Content Include="Gamut.UI\Views\news.html" />
     <Content Include="Gamut.UI\Views\rating.html" />
     <Content Include="Gamut.UI\Views\reports.html" />
