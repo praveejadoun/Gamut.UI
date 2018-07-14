@@ -102,11 +102,11 @@ app.service('ratingService', function ($http) {
 //security Service API
 app.service('securityService', function ($http) {
     this.getSecurityList= function () {
-     return $http.get("http://gamut.somee.com/api/Security");
-     };
-     this.getSecurityById= function (Id) {
+        return $http.get("http://gamut.somee.com/api/Security");
+    };
+    this.getSecurityById= function (Id) {
         return $http.get(localStorage.getItem("APIUrl")+"/Security/"+ Id);
-        };
+    };
  });
  
 //Soc124 Service API
@@ -211,6 +211,41 @@ app.service('LogsService', function ($http) {
      };
 });
 
+//Home Service API
+app.service('ScoreService', function ($http) {
+    this.getScores= function () {
+        return $http.get("http://gamut.somee.com/api/score");
+     };
+});
+
+//Module Service API
+app.service('ModuleService', function ($http) {
+    this.putModule= function (Id, data) {
+        return $http.put("http://gamut.somee.com/api/ModuleNote/"+Id, data);
+     };
+     this.getModule= function (Id, moduleName) {
+        return $http.get("http://gamut.somee.com/api/ModuleNote/"+Id+"?moduleName="+moduleName);
+     };
+}); 
+
+//Misc Service API
+app.service('MiscService', function ($http) {
+    this.getMiscInformation= function (Id, user) {
+        return $http.get("http://gamut.somee.com/api/Misc/"+Id+"?loginId="+user);
+     };
+    this.putmiscExposures= function (Id, data) {
+        return $http.put("http://gamut.somee.com/api/SaveMiscExposure/"+Id, data);
+    };
+    this.putmiscAttachments= function (Id, data) {
+        return $http.put("http://gamut.somee.com/api/SaveMiscAttachment/"+Id, data);
+    };
+    this.postmiscExposures= function (data) {
+        return $http.post("http://gamut.somee.com/api/CreateMiscExposure", data);
+    };
+    this.postmiscAttachments= function (data) {
+        return $http.post("http://gamut.somee.com/api/CreateMiscAttachment", data);
+    };
+}); 
 
  //Financials Service API
  app.service("FinancialsService", function ($http) {

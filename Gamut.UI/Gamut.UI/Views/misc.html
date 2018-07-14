@@ -1,0 +1,375 @@
+﻿
+<style type="text/css">
+
+    table.tableizer-table {
+        font-size: 12px;
+        border: 1px solid #CCC;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .tableizer-table td {
+        padding: 4px;
+        margin: 3px;
+        border: 1px solid #CCC;
+    }
+
+    .tableizer-table th {
+        background-color: #104E8B;
+        color: #FFF;
+        font-weight: bold;
+    }
+
+      table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+    
+    td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+
+    table[show-weeks] thead tr th {
+    padding: 0px;
+    font-size: 12px;
+    font-weight: normal;
+    padding-top:4px;
+    padding-bottom: 4px;
+    text-align: center;
+    margin: 0 auto;
+    padding-right: 5px;
+    padding-left: 5px;
+}
+table[show-weeks] thead tr td button:first-child
+{
+    background: transparent !important;
+}
+
+table[show-weeks] thead tr td button:last-child
+{
+    background: transparent !important;
+    
+}
+
+.icon-chevron-left:before {
+    content: "<";
+}
+
+.icon-chevron-right:before {
+    content: ">";
+}
+
+table[show-weeks] tbody tr td {
+    padding: 2px;
+    text-align: center;
+    font-size: 12px !important;
+    font-weight: normal;
+}
+
+table[show-weeks] tbody tr td button.btn-info {
+    padding: 2px;
+    text-align: center; 
+    background-color: #5bc0de;
+    border-color: #46b8da;
+    font-size: 12px;
+    font-weight: normal;
+    border-radius: 0px;
+}
+
+table[show-weeks] tbody tr td button {
+    padding: 2px;
+    text-align: center; 
+    border-radius: 0px;
+    background-color: whitesmoke;
+    border-color: whitesmoke;
+    font-size: 12px !important;
+    font-weight: normal;
+}
+
+    .tableizer-table td {
+        padding: 4px;
+        margin: 3px;
+        border: 1px solid #CCC;
+    }
+
+    .tableizer-table th {
+        background-color: #104E8B;
+        color: #FFF;
+        font-weight: bold;
+    }
+    .shad{
+        box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+        padding: 15px 10px;
+        background: #fff;
+        border: none;
+        border-radius: 0;
+        margin-bottom: 40px; 
+    }
+   
+</style>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+                <span class="tag">Misc Information</span>  
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <button style="margin-left: 46%;" type="button" class="btn btn-primary">Print</button>
+        </div>
+    </div>
+</div>
+
+<div class="container">&nbsp;</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <table>
+                <tr>
+                    <th>Date</th>
+                    <th>Attachment / Information</th>
+                    <th>Comments</th>
+                    <th>Save</th>
+                    <th>
+                        <button type="button" class="btn btn-warning" ng-click="addRow()" >Add Row</button>
+                    </th>
+                </tr>
+                <tr ng-repeat= "List in miscAttachments">
+                    <td>{{List.attachmentDate | date:'dd-MM-yyyy'}}</td>
+                    <td>{{List.attachmentURL}}</td>
+                    <td><input type="text" class="form-control" name="comments" ng-model="List.comments"/></td>
+                    <td>
+                        <button type="button" class="btn btn-success" ng-click="saveAttachmentData(List.attachmentDate,List.attachmentURL,List.comments,List.cust_Id,List.id,List.lastUpdatedBy,List.lastUpdatedOn)">Save</button>
+                    </td>
+                </tr>
+                <tr ng-show="row">
+                    <td><input id="startDate" type="text" class="form-control" ng-model="List.attachmentDate" datepicker-popup="dd-MM-yyyy" close-text="Close" ng-required="true"/></td>
+                    <td>
+                        <input type="file" class="form-control"  ng-model="List.attachmentURL"/>
+                        <button type="button" class="btn btn-success" ng-click="uploadFile()">Upload</button>
+                    </td>
+                    <td><input type="text" class="form-control" name="comments" ng-model="List.comments"/></td>
+                    <td><button type="button" class="btn btn-success" ng-click="saveNewAttachmentData(List.attachmentURL,List.comments)">Save</button></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="container">&nbsp;</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <h4>Exposure at Quarterly Intervals</h4>
+        </div>
+        <div class="col-sm-12">
+            <table>
+                <tr>
+                    <th>Type</th>
+                    <th>Facility</th>
+                    <th>Sanction Limit</th>
+                    <th>Balance</th>
+                    <th>Exposure</th>
+                    <th>Save</th>
+                    <th><button type="button" class="btn btn-warning" ng-click="addExpRow()" >Add Row</button></th>
+                </tr>
+                <tr ng-repeat= "List in miscExposures">
+                    <td>{{List.facilityType}}</td>
+                    <td>{{List.facility}}</td>
+                    <td><input type="number" class="form-control" step="0.01" name="sanctionLimit" ng-model="List.sanctionLimit"/></td>
+                    <td><input type="number" class="form-control" step="0.01" name="balance" ng-model="List.balance"/></td>
+                    <td><input type="number" class="form-control" step="0.01" name="exposure" ng-model="List.exposure"/></td>
+                    <td>
+                        <button type="button" class="btn btn-success" ng-click="saveExposureData(List.balance,List.comments,List.cust_Id,List.exposure,List.facility,List.facilityType,List.id,List.sanctionLimit)">Save</button>
+                    </td>
+                </tr>
+                <tr ng-show="expRow">
+                    <td>
+                        <select data-ng-model="List.facilityType" class="form-control">
+                            <option value="">--Select--</option>
+                            <option value="Funded">Funded</option>
+                            <option value="Non-Funded">Non-Funded</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select data-ng-model="List.facility" class="form-control">
+                            <option value="">--Select--</option>
+                            <option value="TLr">TL</option>
+                            <option value="OD/CC">OD/CC</option>
+                            <option value="Export Finance">Export Finance</option>
+                            <option value="LC">LC</option>
+                            <option value="BC">BC</option>
+                            <option value="Others">Others</option>
+                        </select>
+                    </td>
+                    <td><input type="number" class="form-control" step="0.01" name="sanctionLimit" ng-model="List.sanctionLimit"/></td>
+                    <td><input type="number" class="form-control" step="0.01" name="balance" ng-model="List.balance"/></td>
+                    <td><input type="number" class="form-control" step="0.01" name="exposure" ng-model="List.exposure"/></td>
+                    <td>
+                        <button type="button" class="btn btn-success" ng-click="saveNewExposureData(List.balance,List.comments,List.exposure,List.facility,List.facilityType,List.sanctionLimit)">Save</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">&nbsp;</div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="col-sm-6">
+                <div class="col-sm-3">
+                        Refrences:
+                </div>
+                <div class="col-sm-6">
+                    <select data-ng-model="Refrences" class="form-control">
+                        <option value="">--Select--</option>
+                        <option value="Internal Circular">Internal Circular</option>
+                        <option value="RBI Circular">RBI Circular</option>
+                        <option value="Loan Policy">Loan Policy</option>
+                        <option value="Deligation Chart">Deligation Chart</option>
+                        <option value="Interest Refrences">Interest Refrences</option>
+                    </select>
+                </div>
+                <div class="col-sm-2" ng-if="Refrences != null && Refrences != ''">
+                    <a href="{{Refrences}}" class="btn btn-info" target="_blank" role="button">Go</a>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="col-sm-4">
+                        Communication:
+                </div>
+                <div class="col-sm-6">
+                    <select data-ng-model="Communications" class="form-control">
+                        <option value="">--Select--</option>
+                        <option value="Internal Circular">Recent Orders</option>
+                        <option value="RBI Circular">Mails (Open Outlook)</option>
+                        <option value="Loan Policy">Internal Chatting App</option>
+                        <option value="Deligation Chart">Employee Search</option>
+                    </select>
+                </div>
+                <div class="col-sm-2" ng-if="Communications != null && Communications != ''">
+                    <a href="{{Communications}}" class="btn btn-info" target="_blank" role="button">Go</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">&nbsp;</div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="col-sm-6">
+                <div class="col-sm-3">
+                        Reminders:
+                </div>
+                <div class="col-sm-6">
+                    <select data-ng-model="Reminders" class="form-control">
+                        <option value="">--Select--</option>
+                        <option value="For Month">For Month</option>
+                        <option value="For Week">For Week</option>
+                    </select>
+                </div>
+                <div class="col-sm-2" ng-if="Reminders != null && Reminders != ''">
+                    <a href="{{Reminders}}" class="btn btn-info" target="_blank" role="button">Go</a>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                    <div class="col-sm-4">
+                            My Repository:
+                    </div>
+                    <div class="col-sm-6">
+                        <select data-ng-model="Repository" class="form-control">
+                            <option value="">--Select--</option>
+                            <option value="For Month">Attachment</option>
+                        </select>
+                    </div>
+                    <div class="col-sm-2" ng-if="Repository != null && Repository != ''">
+                        <input type="file" style="width: 0%; margin-left: -37%;"/>
+                    </div>
+                </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+        <div class="row">
+            <div class="col-sm-12">&nbsp;</div>
+        </div>
+    </div>
+    
+<nav class="shad">
+    <div class="container-fluid">
+        <div class="container">
+            <div class="row">
+                    <div class="col-sm-12">
+                        <div class="col-sm-2">
+                            Observation Noted:
+                        </div>
+                        <div class="col-sm-4">
+                            <input type="text" class="form-control" name="observationNoted" ng-model="ModuleDetailsDataList[0].ObservationNotes" >
+                        </div>
+                        <div class="col-sm-2">
+                            Communicated To: 
+                        </div>
+                        <div class="col-sm-4">
+                            <input type="text" class="form-control" name="communicatedTo" ng-model="ModuleDetailsDataList[0].CommunicatedTo" >
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">&nbsp;</div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="col-sm-2">
+                            Response Received: 
+                        </div>
+                        <div class="col-sm-4">
+                            <input type="text" class="form-control" name="responseReceived" ng-model="ModuleDetailsDataList[0].responceReceived" >
+                        </div>
+                        <div class="col-sm-2">
+                            Next Follow-Up Date:  
+                        </div>
+                        <div class="col-sm-4">
+                            <input id="startDate" type="text" class="form-control" ng-model="ModuleDetailsDataList[0].FollowupDate" datepicker-popup="dd-MM-yyyy" close-text="Close" ng-required="true"/>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+            <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12">&nbsp;</div>
+                    </div>
+                </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <button type="button" style="margin-left: 90%;" class="btn btn-success" ng-click="SaveModuleData()">Save</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>

@@ -93,6 +93,15 @@ table[show-weeks] tbody tr td button {
         border-radius: 0;
         margin-bottom: 40px; 
     }
+    #table-wrapper {
+    position:relative;
+    }
+
+    #table-scroll {
+    height:456px;
+    overflow:auto;  
+    margin-top:20px;
+    }
 </style>
 
 <div class="container">
@@ -148,8 +157,8 @@ table[show-weeks] tbody tr td button {
     </div>
 </div>
 <div class="container">&nbsp;</div>
-<div class="container">
-        <div class="row">
+<div class="container" id="table-wrapper">
+        <div class="row" id="table-scroll">
             <div class="col-sm-12">
                 <table class="table tab-content table-bordered">
                     <thead>
@@ -181,60 +190,60 @@ table[show-weeks] tbody tr td button {
             </div>
         </div>
 
-    <nav class="shad">
-            <div class="container-fluid">
-                <div class="container">
-                    <div class="row">
-                            <div class="col-sm-12">
-                                <div class="col-sm-2">
-                                    Observation Noted:
-                                </div>
-                                <div class="col-sm-4">
-                                    <input type="text" class="form-control" name="observationNoted" ng-model="observationNoted" >
-                                </div>
-                                <div class="col-sm-2">
-                                    Communicated To: 
-                                </div>
-                                <div class="col-sm-4">
-                                    <input type="text" class="form-control" name="communicatedTo" ng-model="communicatedTo" >
-                                </div>
-                            </div>
+<nav class="shad">
+    <div class="container-fluid">
+        <div class="container">
+            <div class="row">
+                    <div class="col-sm-12">
+                        <div class="col-sm-2">
+                            Observation Noted:
                         </div>
-                    </div>
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-sm-12">&nbsp;</div>
+                        <div class="col-sm-4">
+                            <input type="text" class="form-control" name="observationNoted" ng-model="ModuleDetailsDataList[0].ObservationNotes" >
                         </div>
-                    </div>
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <div class="col-sm-2">
-                                    Response Received: 
-                                </div>
-                                <div class="col-sm-4">
-                                    <input type="text" class="form-control" name="responseReceived" ng-model="responseReceived" >
-                                </div>
-                                <div class="col-sm-2">
-                                    Next Follow-Up Date:  
-                                </div>
-                                <div class="col-sm-4">
-                                    <input id="startDate" type="text" class="form-control" ng-model="followUpDate" datepicker-popup="dd-MM-yyyy" close-text="Close" ng-required="true"/>
-                                </div>
-                            </div>
+                        <div class="col-sm-2">
+                            Communicated To: 
                         </div>
-                    </div> 
-                    <div class="container">
-                            <div class="row">
-                                <div class="col-sm-12">&nbsp;</div>
-                            </div>
-                        </div>
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <button type="button" style="margin-left: 90%;" class="btn btn-success" ng-click="saveData( )">Save</button>
-                            </div>
+                        <div class="col-sm-4">
+                            <input type="text" class="form-control" name="communicatedTo" ng-model="ModuleDetailsDataList[0].CommunicatedTo" >
                         </div>
                     </div>
                 </div>
-            </nav>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">&nbsp;</div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="col-sm-2">
+                            Response Received: 
+                        </div>
+                        <div class="col-sm-4">
+                            <input type="text" class="form-control" name="responseReceived" ng-model="ModuleDetailsDataList[0].responceReceived" >
+                        </div>
+                        <div class="col-sm-2">
+                            Next Follow-Up Date:  
+                        </div>
+                        <div class="col-sm-4">
+                            <input id="startDate" type="text" class="form-control" ng-model="ModuleDetailsDataList[0].FollowupDate" datepicker-popup="dd-MM-yyyy" close-text="Close" ng-required="true"/>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+            <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12">&nbsp;</div>
+                    </div>
+                </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <button type="button" style="margin-left: 90%;" class="btn btn-success" ng-click="SaveModuleData()">Save</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
