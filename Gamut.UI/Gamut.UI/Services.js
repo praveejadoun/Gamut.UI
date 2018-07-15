@@ -166,10 +166,10 @@ app.service('NewsService', function ($http) {
 //Document Service API
 app.service('DocumentService', function ($http) {
     this.getDocumentsByDate= function (Id, startDate, endDate) {
-        return $http.get("http://gamut.somee.com/api/CustDocument/"+ Id +"?fromDate="+startDate +"&toDate="+endDate);
+        return $http.get("http://localhost:30218/api/CustDocument/"+ Id +"?fromDate="+startDate +"&toDate="+endDate);
      };
      this.putDocuments= function (Id, data) {
-        return $http.put("http://gamut.somee.com/api/CustDocument/"+ Id, data);
+         return $http.put("http://localhost:30218/api/CustDocument/"+ Id, data);
      };
 });
 
