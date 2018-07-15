@@ -37,7 +37,7 @@
         $scope.endDate = selectedYear.endDate;
     }
 
-    $scope.saveData = function(id,cust_id, periodicity, documentType, submitted, submittedDate, deviationNoted, compiledDate, isChecked, monitorId, lastUpdatedBy, lastUpdatedOn){
+    $scope.saveData = function(id,cust_id, periodicity, documentType, submitted, submittedDate, deviationNoted, compiledDate, isChecked, monitorId, lastUpdatedBy, lastUpdatedOn,sortOn){
         var data = {
             "Id":id,
             "cust_id": cust_id,
@@ -50,7 +50,8 @@
             "isChecked": isChecked ? 1 : 0,
             "monitorId": monitorId,
             "lastUpdatedBy": lastUpdatedBy,
-            "lastUpdatedOn": $filter('date')(new Date(), "dd-MM-yyyy")
+            "lastUpdatedOn": $filter('date')(new Date(), "dd-MM-yyyy"),
+            "sortOn": sortOn
           }
           
         blockUI.start('Please wait...');
