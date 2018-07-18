@@ -1,4 +1,4 @@
-﻿app.controller('MiscController', function ($scope, $location, toaster , $filter, $window, $rootScope,$filter, userService, ModuleService, MiscService,ShareData,blockUI) {
+﻿app.controller('MiscController', function ($scope, $location, Upload, toaster , $filter, $window, $rootScope,$filter, userService, ModuleService, MiscService, ShareData, FileUpload, blockUI) {
     $scope.userId = localStorage.getItem("userName");
     if($scope.userId == null){
         $location.path('/');
@@ -166,6 +166,21 @@
         blockUI.start('Please wait...');
         var saveAttachmentResponse = MiscService.postmiscAttachments(data);
         saveAttachmentResponse.then(function (res) {
+            getMiscDetails();
+            toaster.pop('success', "success", "Saved Successfully");
+            blockUI.stop();
+        },
+        function (error) {
+            toaster.pop('error', "error", "Error while saving");
+            $scope.error = 'Failure while saving data', error;
+            blockUI.stop();
+        });
+    }
+
+    $scope.uploadFile = function(file){
+        blockUI.start('Please wait...');
+        var saveNewAttachment = FileUpload.postFile(file);
+        saveNewAttachment.then(function (res) {
             getMiscDetails();
             toaster.pop('success', "success", "Saved Successfully");
             blockUI.stop();

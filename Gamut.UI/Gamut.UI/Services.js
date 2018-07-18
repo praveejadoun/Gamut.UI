@@ -247,6 +247,13 @@ app.service('MiscService', function ($http) {
     };
 }); 
 
+//File Upload
+app.service('FileUpload', function ($http) {
+    this.postFile= function (file) {
+        return $http.post("http://gamut.somee.com/api/FileUpload", file);
+     };
+}); 
+
  //Financials Service API
  app.service("FinancialsService", function ($http) {
     //debugger;

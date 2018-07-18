@@ -150,8 +150,18 @@ table[show-weeks] tbody tr td button {
                 <tr ng-show="row">
                     <td><input id="startDate" type="text" class="form-control" ng-model="List.attachmentDate" datepicker-popup="dd-MM-yyyy" close-text="Close" ng-required="true"/></td>
                     <td>
-                        <input type="file" class="form-control"  ng-model="List.attachmentURL"/>
-                        <button type="button" class="btn btn-success" ng-click="uploadFile()">Upload</button>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="col-sm-9">
+                                        <input type="file" class="form-control" ngf-select ng-model="exFile" name="file">
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <button type="button" class="btn btn-success" ng-click="uploadFile(exFile)">Upload</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </td>
                     <td><input type="text" class="form-control" name="comments" ng-model="List.comments"/></td>
                     <td><button type="button" class="btn btn-success" ng-click="saveNewAttachmentData(List.attachmentURL,List.comments)">Save</button></td>

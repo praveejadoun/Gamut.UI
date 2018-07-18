@@ -1,4 +1,4 @@
-﻿var app = angular.module("ApplicationModule", ["ngRoute", "ui.bootstrap",'angular.filter','toaster','blockUI']);
+﻿var app = angular.module("ApplicationModule", ["ngRoute", "ui.bootstrap",'angular.filter','toaster','blockUI', 'ngFileUpload']);
 
 app.factory("ShareData", function () {
     return { value: 0 }
