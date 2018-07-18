@@ -246,6 +246,7 @@ app.service('MiscService', function ($http) {
         return $http.post("http://gamut.somee.com/api/CreateMiscAttachment", data);
     };
 }); 
+<<<<<<< HEAD
 
 //File Upload
 app.service('FileUpload', function ($http) {
@@ -253,6 +254,8 @@ app.service('FileUpload', function ($http) {
         return $http.post("http://gamut.somee.com/api/FileUpload", file);
      };
 }); 
+=======
+>>>>>>> 871c7704fc674796e965ad2417c0fb6c9bbe5cc7
 
  //Financials Service API
  app.service("FinancialsService", function ($http) {

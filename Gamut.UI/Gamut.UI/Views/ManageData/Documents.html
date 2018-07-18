@@ -175,7 +175,7 @@ table[show-weeks] tbody tr td button {
     </div>
 </div>
 <div class="container">&nbsp;</div>
-<table ng-repeat= "(key, value) in group | groupBy: 'periodicity'" ng-if="group.length  >0">
+<table ng-repeat= "(key, value) in group | groupBy: 'sortOn'" ng-if="group.length  >0">
         <tr>
           <th>Periodicity</th>
           <th>Type</th>
@@ -201,7 +201,7 @@ table[show-weeks] tbody tr td button {
           <td ng-if="key == 'General'"><input type="text" class="form-control" maxlength="200" ng-model="List.monitorId" ></td>
           <td ng-if="key != 'General'"><input id="startDate" type="text" class="form-control" ng-model="List.submittedDate" datepicker-popup="dd-MM-yyyy" close-text="Close" ng-required="true"/></td>
           <td ng-if="key != 'General'"><input type="text" class="form-control" name="approvalFor" maxlength="200" ng-model="List.deviationNoted" ></td>
-          <td><button type="button" class="btn btn-success" ng-click="saveData(List.id,List.cust_id,List.periodicity,List.documentType,List.submitted,List.submittedDate,List.deviationNoted,List.compiledDate,List.isChecked,List.monitorId,List.lastUpdatedBy,List.lastUpdatedOn)">Save</button></td>
+          <td><button type="button" class="btn btn-success" ng-click="saveData(List.id,List.cust_id,List.periodicity,List.documentType,List.submitted,List.submittedDate,List.deviationNoted,List.compiledDate,List.isChecked,List.monitorId,List.lastUpdatedBy,List.lastUpdatedOn,List.sortOn)">Save</button></td>
         </tr>
         <tr>
             <th style="border: #ffffff !important">

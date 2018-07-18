@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 ﻿app.controller('MiscController', function ($scope, $location, Upload, toaster , $filter, $window, $rootScope,$filter, userService, ModuleService, MiscService, ShareData, FileUpload, blockUI) {
+=======
+﻿app.controller('MiscController', function ($scope, $location, toaster , $filter, $window, $rootScope,$filter, userService, ModuleService, MiscService,ShareData,blockUI) {
+>>>>>>> 871c7704fc674796e965ad2417c0fb6c9bbe5cc7
     $scope.userId = localStorage.getItem("userName");
     if($scope.userId == null){
         $location.path('/');
@@ -176,6 +180,7 @@
             blockUI.stop();
         });
     }
+<<<<<<< HEAD
 
     $scope.uploadFile = function(file){
         blockUI.start('Please wait...');
@@ -191,4 +196,6 @@
             blockUI.stop();
         });
     }
+=======
+>>>>>>> 871c7704fc674796e965ad2417c0fb6c9bbe5cc7
 });
