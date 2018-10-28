@@ -89,6 +89,7 @@
     <Content Include="Gamut.UI\Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Gamut.UI\Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Gamut.UI\Scripts\modernizr-2.6.2.js" />
+    <Content Include="Gamut.UI\Scripts\ng-file-upload.js" />
     <Content Include="Gamut.UI\Scripts\respond.js" />
     <Content Include="Gamut.UI\Scripts\respond.min.js" />
     <Content Include="Gamut.UI\Scripts\sammy-0.7.4.js" />
